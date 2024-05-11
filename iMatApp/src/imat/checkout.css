@@ -1,0 +1,23 @@
+.footer {
+    -fx-background-color:  #FFFFFF;
+    -fx-border-color: #777777;
+    -fx-border-width: 2px;
+}
+
+.footer_button {
+    -fx-background-color: #68C4AF;
+    -fx-font-weight: bold;
+}
+
+.navigation_text {
+    -fx-font-weight: regular;
+    -fx-text-fill: #000000;
+} .navigation_text: hover {
+    -fx-text-fill: #555555;
+}
+.navigation_text_current_page {
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+} .navigation_text_current_page: hover {
+    -fx-text-fill: #555555;
+}
