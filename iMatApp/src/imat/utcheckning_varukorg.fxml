@@ -14,9 +14,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1024.0" minWidth="1440.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
+      <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="724.0" prefWidth="840.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
          <children>
             <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <content>
@@ -24,12 +24,12 @@
               </content>
             </ScrollPane>
             <Separator prefWidth="200.0" style="-fx-border-style: solid;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Label layoutX="71.0" layoutY="666.0" styleClass="text_large" text="Summa:" AnchorPane.leftAnchor="50.0" />
-            <Label layoutX="767.0" layoutY="666.0" styleClass="text_large" text="kr" AnchorPane.rightAnchor="50.0" />
-            <Label fx:id="PriceSum" alignment="CENTER_RIGHT" layoutX="665.0" layoutY="666.0" prefHeight="36.0" prefWidth="86.0" styleClass="text_large" text="0" />
+            <Label layoutX="71.0" layoutY="666.0" styleClass="text_large" text="Summa:" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="50.0" />
+            <Label layoutX="767.0" layoutY="666.0" styleClass="text_large" text="kr" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="50.0" />
+            <Label fx:id="PriceSum" alignment="CENTER_RIGHT" layoutX="665.0" layoutY="666.0" prefHeight="36.0" prefWidth="86.0" styleClass="text_large" text="0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="85.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="100.0" layoutY="301.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1140.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="100.0" layoutY="301.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
             <InnerShadow height="11.0" radius="5.0" width="11.0">
                <color>
@@ -38,7 +38,7 @@
             </InnerShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="1138.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="1138.0" layoutY="269.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
             <InnerShadow height="11.0" radius="5.0" width="11.0">
                <color>
@@ -47,7 +47,7 @@
             </InnerShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="420.0" layoutY="866.0" prefHeight="200.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="876.0">
+      <AnchorPane prefHeight="150.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button fx:id="ReturnButton" layoutX="42.0" layoutY="37.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="198.0" text="Tillbaka" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="70.0">
                <effect>
@@ -108,10 +108,14 @@
                   <String fx:value="text_large" />
                </styleClass>
             </Label>
-            <Button layoutX="339.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #EEEEEE;" styleClass="text_large" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
+            <Button fx:id="ContinueShoppingButton" layoutX="339.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #EEEEEE;" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
                <effect>
                   <DropShadow />
                </effect>
+               <styleClass>
+                  <String fx:value="text_large" />
+                  <String fx:value="continue_shopping_button" />
+               </styleClass>
             </Button>
          </children>
          <effect>
