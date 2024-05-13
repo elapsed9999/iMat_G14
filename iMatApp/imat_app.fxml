@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1024.0" maxWidth="1440.0" minHeight="1024.0" minWidth="1440.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+   <children>
+      <AnchorPane fx:id="HeaderPane" layoutX="1.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="fullView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <AnchorPane fx:id="BrowsePane" prefHeight="488.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="534.0" />
+                  <AnchorPane fx:id="VarukorgName" prefHeight="84.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
+                  <AnchorPane fx:id="KategoriName" prefHeight="84.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0" />
+                  <AnchorPane fx:id="VarukorgPane" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="235.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="2.0" layoutY="-7.0" prefHeight="790.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="790.0" prefWidth="300.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="HeaderPane2" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0">
+                     <children>
+                        <TextField fx:id="SearchBar" layoutX="412.0" layoutY="53.0" minHeight="40.0" minWidth="797.0" prefHeight="40.0" prefWidth="797.0" promptText="Sök...." AnchorPane.leftAnchor="396.5" AnchorPane.rightAnchor="396.5" AnchorPane.topAnchor="53.0" />
+                        <ImageView fx:id="SearchImage" fitHeight="27.0" fitWidth="31.0" layoutX="987.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="422.0" AnchorPane.topAnchor="60.0">
+                           <image>
+                              <Image url="@resources/search-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="ProfileImage" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/profile-image.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="IconImage" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-5.0">
+                           <image>
+                              <Image url="@resources/iMat_logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="pathLabel" layoutX="432.0" layoutY="98.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="KategoriPane" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="235.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="790.0" prefWidth="300.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="790.0" prefWidth="300.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="CenterStageNamePane" prefHeight="82.0" prefWidth="837.0" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="289.0" AnchorPane.topAnchor="150.0" />
+                  <AnchorPane fx:id="CenterStagePane" prefHeight="302.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="232.0">
+                     <children>
+                        <ImageView fitHeight="207.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="207.0" fitWidth="200.0" layoutX="191.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="207.0" fitWidth="200.0" layoutX="406.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="207.0" fitWidth="200.0" layoutX="613.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="deatailAnchor" maxHeight="1024.0" maxWidth="1440.0" minHeight="1024.0" minWidth="1440.0" onMouseClicked="#closeDetailView" prefHeight="1024.0" prefWidth="1440.0" styleClass="detail_view">
+               <children>
+                  <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" prefHeight="748.0" prefWidth="1130.0" styleClass="text-area">
+                     <children>
+                        <ImageView fx:id="closeDetailView" fitHeight="29.0" fitWidth="29.0" layoutX="1093.0" layoutY="4.0" onMouseClicked="#closeImageMousePressed" onMouseEntered="#closeImageMouseEntered" onMouseExited="#closeImageMouseExited" onMousePressed="#closeDetailView" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_close.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="detailProductImage" fitHeight="292.0" fitWidth="302.0" layoutX="89.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="detailArea" layoutX="535.0" layoutY="430.0" prefHeight="302.0" prefWidth="477.0" />
+                        <Label fx:id="detailProductLabel" layoutX="571.0" layoutY="92.0" prefHeight="43.0" prefWidth="243.0" text="Label">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="detailPriceLabel" layoutX="568.0" layoutY="177.0" prefHeight="33.0" prefWidth="116.0" text="pris">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="detailCategoriLabel" layoutX="117.0" layoutY="23.0" prefHeight="33.0" prefWidth="116.0" text="kategori">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="564.0" layoutY="336.0" prefHeight="33.0" prefWidth="88.0" text="KÖP">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="detailAreaContent" layoutX="13.0" layoutY="425.0" prefHeight="302.0" prefWidth="477.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      </AnchorPane>
+   </children>
+</AnchorPane>
