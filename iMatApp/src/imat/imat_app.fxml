@@ -12,6 +12,7 @@
 
 <AnchorPane maxHeight="1024.0" maxWidth="1440.0" minHeight="1024.0" minWidth="1440.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
+      <AnchorPane fx:id="HeaderPane" layoutX="1.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;">
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane fx:id="fullView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">

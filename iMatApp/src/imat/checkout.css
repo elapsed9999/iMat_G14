@@ -1,0 +1,25 @@
+.footer {
+    -fx-background-color:  #FFFFFF;
+    -fx-border-color: #777777;
+    -fx-border-width: 2px;
+}
+
+.footer_button {
+    -fx-background-color: #68C4AF;
+    -fx-font-weight: bold;
+} .footer_button: hover {
+     -fx-text-fill: #888888;
+}
+
+.continue_shopping_button: hover {
+    -fx-text-fill: #888888;
+}
+
+.navigation_text: hover {
+    -fx-text-fill: #888888;
+}
+.navigation_text_current_page {
+    -fx-font-weight: bold;
+} .navigation_text_current_page: hover {
+    -fx-text-fill: #888888;
+}
