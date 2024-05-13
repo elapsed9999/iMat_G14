@@ -76,7 +76,6 @@ public class MainViewController implements Initializable {
         detailProductLabel.setText(product.getName());
         detailPriceLabel.setText(String.valueOf(product.getPrice() + "kr"));
         detailCategoriLabel.setText(String.valueOf(product.getCategory()));
-        detailProductImage.setImage(Image.(product.getImageName()));
 
     }
 
