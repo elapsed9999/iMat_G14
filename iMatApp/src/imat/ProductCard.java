@@ -11,6 +11,7 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class ProductCard extends AnchorPane {
     @FXML private ImageView Image;
@@ -24,8 +25,9 @@ public class ProductCard extends AnchorPane {
     private IMatDataHandler handler;
 
     public ProductCard(Product product, IMatDataHandler handler){
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
-        //fxmlLoader.setRoot(this);
+        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
             fxmlLoader.load();
@@ -34,11 +36,9 @@ public class ProductCard extends AnchorPane {
         }
         this.product = product;
         this.handler = handler;
-        Image.setImage(handler.getFXImage(product));
-        Name.setText(product.getName());
-        String price_text = String.valueOf(product.getPrice()) + product.getUnit();
-        Price.setText(price_text);
+        //Image.setImage(handler.getFXImage(product));
+        //Name.setText(product.getName());
+        //String price_text = String.valueOf(product.getPrice()) + product.getUnit();
+        //Price.setText(price_text);
     }
-
-    //protected void onClick(Event event){}
 }

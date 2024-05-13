@@ -19,7 +19,11 @@
             <children>
                <AnchorPane fx:id="BrowsePane" prefHeight="488.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="534.0">
                      <children>
-                        <FlowPane fx:id="ProductFlowPane" layoutX="100.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ScrollPane fx:id="ProductScrollPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <FlowPane fx:id="ProductFlowPane" prefHeight="200.0" prefWidth="200.0" />
+                           </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                <AnchorPane fx:id="VarukorgName" prefHeight="84.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />

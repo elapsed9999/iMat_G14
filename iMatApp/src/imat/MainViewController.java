@@ -7,7 +7,9 @@ import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,6 +35,8 @@ public class MainViewController implements Initializable {
 
     @FXML
     FlowPane ProductFlowPane;
+    @FXML
+    ScrollPane ProductScrollPane;
 
 
 
@@ -47,6 +51,8 @@ public class MainViewController implements Initializable {
 
         pathLabel.setText(iMatDirectory);
 
+        ProductCard pc = new ProductCard(new Product(), iMatDataHandler);
+        //ProductFlowPane.getChildren().add(pc);
         for(int i = 0; i < 10; i++){
             ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
         }

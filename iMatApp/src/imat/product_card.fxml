@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="193.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="193.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
    <children>
       <ImageView fx:id="Image" fitHeight="120.0" fitWidth="120.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -57,4 +57,4 @@
    <effect>
       <DropShadow />
    </effect>
-</AnchorPane>
+</fx:root>
