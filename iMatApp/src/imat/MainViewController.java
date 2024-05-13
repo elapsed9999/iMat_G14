@@ -18,17 +18,13 @@ import se.chalmers.cse.dat216.project.ProductDetail;
 
 public class MainViewController implements Initializable {
 
-    @FXML
-    Label pathLabel;
-    @FXML
-    AnchorPane detailAnchor;
+    @FXML Label pathLabel;
+    @FXML AnchorPane detailAnchor;
     @FXML AnchorPane detailView;
-    @FXML
-    ImageView closeDetailView;
+    @FXML ImageView closeDetailView;
     @FXML AnchorPane fullView;
     @FXML ImageView detailProductImage;
-    @FXML
-    TextArea detailArea;
+    @FXML TextArea detailArea;
     @FXML TextArea detailAreaContent;
     @FXML Label detailProductLabel;
     @FXML Label detailPriceLabel;
@@ -36,7 +32,9 @@ public class MainViewController implements Initializable {
 
 
 
-
+    private Model model;
+    private Product product;
+    private ProductDetail productDetail;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,7 +44,9 @@ public class MainViewController implements Initializable {
         pathLabel.setText(iMatDirectory);
 
     }
-
+    @FXML
+    public void openDetailView(){
+        detailAnchor.toFront();}
     @FXML
     public void closeDetailView() {
         fullView.toFront();
@@ -54,28 +54,33 @@ public class MainViewController implements Initializable {
     @FXML
     public void closeImageMouseEntered(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close_hover.png")));
+                "imat/resources/icon_close_hover.png")));
     }
 
     @FXML
     public void closeImageMousePressed(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close_pressed.png")));
+                "imat/resources/icon_close_pressed.png")));
     }
 
     @FXML
     public void closeImageMouseExited(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close.png")));
+                "imat/resources/icon_close.png")));
     }
     @FXML
     public void mouseTrap(Event event){
         event.consume();
     }
-    private void populateDetailView(Product product){
-        detailProductLabel.setText(product.getName());
+    private void populateDetailView(IMatDataHandler iMatDataHandler){
+        detailProductLabel.setText(model.getProductName());
+        detailProductImage.setImage(iMatDataHandler.getFXImage(model.getProduct(product.getProductId())));
         detailPriceLabel.setText(String.valueOf(product.getPrice() + "kr"));
         detailCategoriLabel.setText(String.valueOf(product.getCategory()));
+        detailArea.setText(productDetail.getDescription());
+        detailAreaContent.setText(productDetail.getContents());
+        detailCategoriLabel.setText(String.valueOf(product.getCategory()));
+
 
     }
 
