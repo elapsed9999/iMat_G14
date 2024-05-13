@@ -4,7 +4,14 @@
       -fx-font-weight: bold;
   }
 
-  .text_large {
-    -fx-font-size: 30px;
-    -fx-font-family: "Arial";
-  }
+.detail_view {
+    -fx-background-color: rgba(0, 0, 0, 0.75);
+ }
+
+ .text-area .content {
+    -fx-background-color: -fx-background;
+ }
+
+ .text-area  {
+     -fx-background-color: -fx-background;
+ }
