@@ -23,8 +23,9 @@ public class ProductCard extends AnchorPane {
     private Product product;
     private IMatDataHandler handler;
 
-    public ProductCard(Product product, IMatDataHandler handler){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_item.fxml"));
+    public ProductCard(IMatDataHandler handler){
+        Product product = new Product();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("imat/product_item.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
