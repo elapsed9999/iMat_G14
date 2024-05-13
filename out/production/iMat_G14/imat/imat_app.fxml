@@ -12,6 +12,7 @@
 
 <AnchorPane maxHeight="1024.0" maxWidth="1440.0" minHeight="1024.0" minWidth="1440.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
+      <AnchorPane fx:id="HeaderPane" layoutX="1.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;">
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane fx:id="fullView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
@@ -28,7 +29,7 @@
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="HeaderPane" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0">
+                  <AnchorPane fx:id="HeaderPane2" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0">
                      <children>
                         <TextField fx:id="SearchBar" layoutX="412.0" layoutY="53.0" minHeight="40.0" minWidth="797.0" prefHeight="40.0" prefWidth="797.0" promptText="Sök...." AnchorPane.leftAnchor="396.5" AnchorPane.rightAnchor="396.5" AnchorPane.topAnchor="53.0" />
                         <ImageView fx:id="SearchImage" fitHeight="27.0" fitWidth="31.0" layoutX="987.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="422.0" AnchorPane.topAnchor="60.0">
@@ -107,5 +108,6 @@
             </AnchorPane>
          </children>
       </StackPane>
+      </AnchorPane>
    </children>
 </AnchorPane>
