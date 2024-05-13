@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductDetail;
@@ -30,6 +31,9 @@ public class MainViewController implements Initializable {
     @FXML Label detailPriceLabel;
     @FXML Label detailCategoriLabel;
 
+    @FXML
+    FlowPane ProductFlowPane;
+
 
 
     private Model model;
@@ -43,6 +47,10 @@ public class MainViewController implements Initializable {
 
         pathLabel.setText(iMatDirectory);
 
+        for(int i = 0; i < 10; i++){
+            ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
+        }
+
     }
     @FXML
     public void openDetailView(){
@@ -50,6 +58,7 @@ public class MainViewController implements Initializable {
     @FXML
     public void closeDetailView() {
         fullView.toFront();
+        System.out.println(ProductFlowPane.getChildren());
     }
     @FXML
     public void closeImageMouseEntered(){

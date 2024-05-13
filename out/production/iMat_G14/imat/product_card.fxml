@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="193.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="193.0" style="-fx-background-color: #987567;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="Image" fitHeight="120.0" fitWidth="120.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,7 +47,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Label fx:id="Amount" alignment="CENTER" layoutX="53.0" layoutY="9.0" onMouseClicked="#onClick" prefHeight="20.0" prefWidth="62.0" styleClass="text-sample" text="0" />
+            <Label fx:id="Amount" alignment="CENTER" layoutX="53.0" layoutY="9.0" prefHeight="20.0" prefWidth="62.0" styleClass="text-sample" text="0" />
          </children>
          <effect>
             <DropShadow />
