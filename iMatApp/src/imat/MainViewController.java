@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -33,12 +32,7 @@ public class MainViewController implements Initializable {
     @FXML Label detailPriceLabel;
     @FXML Label detailCategoriLabel;
 
-    @FXML
-    FlowPane ProductFlowPane;
-    @FXML
-    ScrollPane ProductScrollPane;
-
-
+    @FXML private FlowPane ProductFlowPane;
 
     private Model model;
     private Product product;
@@ -51,9 +45,7 @@ public class MainViewController implements Initializable {
 
         pathLabel.setText(iMatDirectory);
 
-        ProductCard pc = new ProductCard(new Product(), iMatDataHandler);
-        //ProductFlowPane.getChildren().add(pc);
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 100; i++){
             ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
         }
 
@@ -64,7 +56,6 @@ public class MainViewController implements Initializable {
     @FXML
     public void closeDetailView() {
         fullView.toFront();
-        System.out.println(ProductFlowPane.getChildren());
     }
     @FXML
     public void closeImageMouseEntered(){

@@ -25,7 +25,6 @@ public class ProductCard extends AnchorPane {
     private IMatDataHandler handler;
 
     public ProductCard(Product product, IMatDataHandler handler){
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -36,9 +35,9 @@ public class ProductCard extends AnchorPane {
         }
         this.product = product;
         this.handler = handler;
-        //Image.setImage(handler.getFXImage(product));
-        //Name.setText(product.getName());
-        //String price_text = String.valueOf(product.getPrice()) + product.getUnit();
-        //Price.setText(price_text);
+        Image.setImage(handler.getFXImage(product));
+        Name.setText(product.getName());
+        String price_text = String.valueOf(product.getPrice()) + product.getUnit();
+        Price.setText(price_text);
     }
 }
