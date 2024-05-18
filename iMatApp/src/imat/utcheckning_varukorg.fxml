@@ -29,7 +29,7 @@
             <Label fx:id="PriceSum" alignment="CENTER_RIGHT" layoutX="665.0" layoutY="666.0" prefHeight="36.0" prefWidth="86.0" styleClass="text_large" text="0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="85.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="100.0" layoutY="301.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="100.0" layoutY="301.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
             <InnerShadow height="11.0" radius="5.0" width="11.0">
                <color>
@@ -38,7 +38,7 @@
             </InnerShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="1138.0" layoutY="269.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="1138.0" layoutY="269.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
             <InnerShadow height="11.0" radius="5.0" width="11.0">
                <color>
