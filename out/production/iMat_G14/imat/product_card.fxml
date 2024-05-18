@@ -8,22 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="193.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="269.0" styleClass="product-card" stylesheets="@imat_app.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="Image" fitHeight="120.0" fitWidth="120.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Image" fitHeight="120.0" fitWidth="120.0" layoutX="75.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/icon_close.png" />
          </image>
       </ImageView>
-      <Label fx:id="Name" alignment="CENTER" layoutY="134.0" prefHeight="18.0" prefWidth="110.0" styleClass="text-sample" stylesheets="@imat_app.css" text="Namn" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="Price" alignment="CENTER" layoutY="160.0" prefHeight="18.0" prefWidth="193.0" text="Pris" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label fx:id="Name" alignment="CENTER" layoutX="40.0" layoutY="173.0" prefHeight="18.0" prefWidth="110.0" styleClass="text-sample" stylesheets="@imat_app.css" text="Namn" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+      <Label fx:id="Price" alignment="CENTER" layoutX="40.0" layoutY="193.0" prefHeight="18.0" prefWidth="193.0" text="Pris" underline="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="AmountController" layoutX="13.0" layoutY="184.0" prefHeight="38.0" prefWidth="168.0" style="-fx-background-color: #00B000;">
+      <AnchorPane fx:id="AmountController" layoutX="58.0" layoutY="222.0" prefHeight="38.0" prefWidth="153.0" styleClass="product-card-amount-controller" AnchorPane.bottomAnchor="9.0">
          <children>
-            <Button fx:id="MinusButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" AnchorPane.leftAnchor="14.0">
+            <Button fx:id="MinusButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" styleClass="product-card-amount-button" AnchorPane.leftAnchor="9.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -31,11 +31,8 @@
                      </image>
                   </ImageView>
                </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
             </Button>
-            <Button fx:id="PlusButton" layoutX="118.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="PlusButton" layoutX="118.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" styleClass="product-card-amount-button" AnchorPane.rightAnchor="9.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -43,11 +40,8 @@
                      </image>
                   </ImageView>
                </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
             </Button>
-            <Label fx:id="Amount" alignment="CENTER" layoutX="53.0" layoutY="9.0" prefHeight="20.0" prefWidth="62.0" styleClass="text-sample" text="0" />
+            <Label fx:id="Amount" alignment="CENTER" layoutX="53.0" layoutY="9.0" prefHeight="20.0" prefWidth="52.0" styleClass="text-sample" text="0" />
          </children>
       </AnchorPane>
    </children>

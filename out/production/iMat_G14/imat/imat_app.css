@@ -20,22 +20,3 @@
  .text-area  {
      -fx-background-color: -fx-background;
  }
-
- .product-card {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 22;
-    -fx-padding: 40px;
-    -fx-border-insets: 40px;
-    -fx-background-insets: 40px;
- }
-.product-card-amount-controller {
-    -fx-background-color: #00B000;
-    -fx-background-radius: 18;
-    -fx-border-radius: 18;
-    -fx-border-color: #006000;
-    -fx-border-width: 1px;
- }
- .product-card-amount-button {
-    -fx-border-color: #006000;
-    -fx-border-radius: 18;
- }
