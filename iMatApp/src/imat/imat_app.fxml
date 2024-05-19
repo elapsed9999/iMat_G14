@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane prefHeight="1025.0" prefWidth="1441.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="detailAnchor" maxHeight="1024.0" maxWidth="1440.0" minHeight="1024.0" minWidth="1440.0" onMouseClicked="#closeDetailView" prefHeight="1024.0" prefWidth="1440.0" styleClass="detail_view">
+            <AnchorPane fx:id="detailAnchor" onMouseClicked="#closeDetailView" styleClass="detail_view">
                <children>
                   <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" prefHeight="748.0" prefWidth="1130.0" styleClass="text-area">
                      <children>
@@ -51,7 +51,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="fullView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane fx:id="fullView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
                <children>
                   <AnchorPane fx:id="HeaderPane2" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -74,11 +74,11 @@
                         <Label fx:id="pathLabel" layoutX="432.0" layoutY="98.0" text="Label" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="488.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+                  <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="490.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
                      <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <FlowPane fx:id="ProductFlowPane" alignment="TOP_CENTER" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="840.0" />
+                              <FlowPane fx:id="ProductFlowPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -87,16 +87,16 @@
                   <AnchorPane fx:id="KategoriName" prefHeight="84.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0" />
                   <AnchorPane fx:id="VarukorgPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="234.0">
                      <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="2.0" layoutY="-7.0" prefHeight="790.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" />
+                              <FlowPane fx:id="VarukorgFlowPane" orientation="VERTICAL" />
                            </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="KategoriPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
                      <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="790.0" prefWidth="300.0">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="790.0" prefWidth="300.0">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="790.0" prefWidth="300.0" />
                            </content>
@@ -104,7 +104,7 @@
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="CenterStageNamePane" prefHeight="84.0" prefWidth="837.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0" />
-                  <AnchorPane fx:id="CenterStagePane" prefHeight="302.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0" />
+                  <AnchorPane fx:id="CenterStagePane" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0" />
                </children>
             </AnchorPane>
          </children>

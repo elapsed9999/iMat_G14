@@ -6,12 +6,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #EFEFEF;" styleClass="text-sample" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #EFEFEF;" styleClass="text-sample" stylesheets="@imat_app.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="VarukorgItemName" layoutX="14.0" layoutY="15.0" prefHeight="20.0" prefWidth="152.0" styleClass="text-sample" text="Namn" />
-      <Label fx:id="VarukorgItemAmount" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="15.0" prefHeight="20.0" prefWidth="28.0" styleClass="text-sample" text="0" />
-      <Label layoutX="238.0" layoutY="15.0" styleClass="text-sample" text="st" />
-      <Button fx:id="VarukorgMinusButton" layoutX="169.0" layoutY="9.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="38.0">
+      <Label fx:id="Name" layoutX="10.0" layoutY="14.0" prefHeight="20.0" prefWidth="140.0" styleClass="text-sample" text="Namn" />
+      <Label fx:id="Amount" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="15.0" prefHeight="20.0" prefWidth="28.0" styleClass="text-sample" text="0" />
+      <Label layoutX="227.0" layoutY="15.0" styleClass="text-sample" text="st" />
+      <Button fx:id="MinusButton" layoutX="158.0" layoutY="9.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="38.0">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -20,7 +20,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="VarukorgPlusButton" layoutX="258.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="14.0">
+      <Button fx:id="PlusButton" layoutX="247.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="14.0">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,4 +30,4 @@
          </graphic>
       </Button>
    </children>
-</AnchorPane>
+</fx:root>

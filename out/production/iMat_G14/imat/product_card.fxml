@@ -23,7 +23,7 @@
       </Label>
       <AnchorPane fx:id="AmountController" layoutX="58.0" layoutY="222.0" prefHeight="38.0" prefWidth="153.0" styleClass="product-card-amount-controller" AnchorPane.bottomAnchor="9.0">
          <children>
-            <Button fx:id="MinusButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" styleClass="product-card-amount-button" AnchorPane.leftAnchor="9.0">
+            <Button fx:id="MinusButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" styleClass="product-card-amount-button" AnchorPane.leftAnchor="9.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="PlusButton" layoutX="118.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #00B000;" styleClass="product-card-amount-button" AnchorPane.rightAnchor="9.0">
+            <Button fx:id="PlusButton" layoutX="118.0" layoutY="5.0" mnemonicParsing="false" styleClass="product-card-amount-button" AnchorPane.rightAnchor="9.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

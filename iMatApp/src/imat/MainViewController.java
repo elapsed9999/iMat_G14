@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductDetail;
@@ -32,6 +33,9 @@ public class MainViewController implements Initializable {
     @FXML Label detailCategoriLabel;
 
     @FXML private FlowPane ProductFlowPane;
+    @FXML private FlowPane VarukorgFlowPane;
+
+    @FXML private StackPane stackPane;
 
     private Model model;
     private Product product;
@@ -44,8 +48,14 @@ public class MainViewController implements Initializable {
 
         pathLabel.setText(iMatDirectory);
 
+        fullView.prefWidthProperty().bind(stackPane.widthProperty());
+        fullView.prefHeightProperty().bind(stackPane.heightProperty());
+
         for(int i = 0; i < 100; i++){
             ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
+        }
+        for(int i = 0; i < 6; i++){
+            VarukorgFlowPane.getChildren().add(new VarukorgItem(new Product(), iMatDataHandler, false));
         }
 
     }
