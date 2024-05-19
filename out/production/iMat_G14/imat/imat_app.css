@@ -9,6 +9,11 @@
     -fx-font-family: "Arial";
   }
 
+  .text-larger {
+    -fx-font-size: 45px;
+    -fx-font-weight: bold;
+  }
+
 .detail_view {
     -fx-background-color: rgba(0, 0, 0, 0.75);
  }
