@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -22,9 +23,9 @@ public class ProductCard extends AnchorPane {
     @FXML private Button PlusButton;
 
     private Product product;
-    private IMatDataHandler handler;
+    private MainViewController parentController;
 
-    public ProductCard(Product product, IMatDataHandler handler){
+    public ProductCard(Product product, MainViewController parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -34,10 +35,28 @@ public class ProductCard extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.product = product;
-        this.handler = handler;
-        Image.setImage(handler.getFXImage(product));
+        this.parentController = parentController;
+        Image.setImage(parentController.iMatDataHandler.getFXImage(product));
         Name.setText(product.getName());
-        String price_text = String.valueOf(product.getPrice()) + product.getUnit();
+        String price_text = String.valueOf(product.getPrice()) + " " + product.getUnit();
         Price.setText(price_text);
+        setAmount(0);
+    }
+
+    public void setAmount(int amount){
+        Amount.setText(String.valueOf(amount) + " " + product.getUnitSuffix());
+    }
+    public void onClick(Event event){
+        parentController.openDetailView(product);
+    }
+
+    public void minusButtonClick(Event event) {
+        ShoppingCart sc = parentController.iMatDataHandler.getShoppingCart();
+        sc.removeProduct(product);
+    }
+
+    public void plusButtonClick(Event event) {
+        ShoppingCart sc = parentController.iMatDataHandler.getShoppingCart();
+        sc.addProduct(product);
     }
 }

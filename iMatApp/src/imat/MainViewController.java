@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -34,6 +35,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML private FlowPane ProductFlowPane;
     @FXML private FlowPane VarukorgFlowPane;
+    @FXML private FlowPane CategoryFlowPane;
 
     @FXML private StackPane stackPane;
 
@@ -58,30 +60,59 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailView.prefHeightProperty().bind(stackPane.heightProperty());
 
         createProductCards();
-
-        //for(int i = 0; i < 100; i++){
-        //    ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
-        //}
-        for(int i = 0; i < 6; i++){
-            VarukorgFlowPane.getChildren().add(new VarukorgItem(new Product(), iMatDataHandler, false));
-        }
+        createCategoryList();
 
     }
+
+    public void setSelectedCategory(ProductCategory selectedCategory) {
+        this.selectedCategory = selectedCategory;
+        createProductCards();
+    }
+
     private void createProductCards(){
+        ProductFlowPane.getChildren().clear();
         List<Product> products;
         if(selectedCategory == null){ products = iMatDataHandler.getProducts(); }
         else{ products = iMatDataHandler.getProducts(selectedCategory); }
         for(Product product : products){
-            ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
+            ProductFlowPane.getChildren().add(new ProductCard(product, this));
         }
     }
 
+    public String categoryToString(ProductCategory category){
+        return String.valueOf(category).replaceAll("_"," ");
+    }
+
+    private void createCategoryList(){
+        CategoryFlowPane.getChildren().clear();
+        for(ProductCategory category : ProductCategory.values()){
+            CategoryFlowPane.getChildren().add(new CategoryListItem(category, this));
+        }
+    }
+
+    private void addVarukorgListItem(ShoppingItem shoppingItem){
+        for(Node item : VarukorgFlowPane.getChildren()){
+            VarukorgItem vi = (VarukorgItem) item;
+            if(vi.getShoppingItem() == shoppingItem){
+                vi.plusOne();
+                return;
+            }
+        }
+        VarukorgFlowPane.getChildren().add(new VarukorgItem(shoppingItem,this, false));
+    }
     public void shoppingCartChanged(CartEvent event){
-        SumPrice.setText(String.valueOf(iMatDataHandler.getShoppingCart().getTotal()));
+        String total = String.format("%2f",iMatDataHandler.getShoppingCart().getTotal());
+        SumPrice.setText(total);
+
+        if(event.isAddEvent()){
+            addVarukorgListItem(event.getShoppingItem());
+        }
     }
     @FXML
-    public void openDetailView(){
-        detailAnchor.toFront();}
+    public void openDetailView(Product product){
+        populateDetailView(product);
+        detailAnchor.toFront();
+    }
     @FXML
     public void closeDetailView() {
         fullView.toFront();
@@ -107,14 +138,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void mouseTrap(Event event){
         event.consume();
     }
-    private void populateDetailView(IMatDataHandler iMatDataHandler){
-        detailProductLabel.setText(model.getProductName());
-        detailProductImage.setImage(iMatDataHandler.getFXImage(model.getProduct(product.getProductId())));
-        detailPriceLabel.setText(String.valueOf(product.getPrice() + "kr"));
-        detailCategoriLabel.setText(String.valueOf(product.getCategory()));
-        detailArea.setText(productDetail.getDescription());
-        detailAreaContent.setText(productDetail.getContents());
-        detailCategoriLabel.setText(String.valueOf(product.getCategory()));
+    private void populateDetailView(Product product){
+        detailProductLabel.setText(product.getName());
+        detailProductImage.setImage(iMatDataHandler.getFXImage(product));
+        detailPriceLabel.setText(String.valueOf(product.getPrice() + " " + product.getUnit()));
+        detailCategoriLabel.setText(categoryToString(product.getCategory()));
+        detailArea.setText(iMatDataHandler.getDetail(product).getDescription());
+        detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
 
 
     }

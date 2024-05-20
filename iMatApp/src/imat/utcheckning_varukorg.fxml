@@ -63,7 +63,7 @@
                   <DropShadow />
                </effect>
                <styleClass>
-                  <String fx:value="footer_button" />
+                  <String fx:value="navigation-button" />
                   <String fx:value="text_large" />
                </styleClass>
             </Button>

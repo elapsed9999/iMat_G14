@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -19,11 +20,11 @@ public class VarukorgItem extends AnchorPane {
     @FXML private Button MinusButton;
     @FXML private Button PlusButton;
 
-    private Product product;
-    private IMatDataHandler handler;
+    private ShoppingItem shoppingItem;
+    private MainViewController parentController;
+    private double amount = 1;
 
-    public VarukorgItem(Product product, IMatDataHandler handler, boolean large){
-        product.setName("Vara");
+    public VarukorgItem(ShoppingItem shoppingItem, MainViewController parentController, boolean large){
         String fxml;
         if(large){ fxml = "varukorg_item_large.fxml"; }
         else{ fxml = "varukorg_item_small.fxml"; }
@@ -36,8 +37,20 @@ public class VarukorgItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.product = product;
-        this.handler = handler;
-        Name.setText(product.getName());
+        this.parentController = parentController;
+        this.shoppingItem = shoppingItem;
+        Name.setText(shoppingItem.getProduct().getName());
+        setAmount(shoppingItem.getAmount());
+    }
+
+    public ShoppingItem getShoppingItem(){ return shoppingItem; }
+
+    public void setAmount(double amount){
+        Amount.setText(String.valueOf(amount) + " " + shoppingItem.getProduct().getUnitSuffix());
+    }
+
+    public void plusOne(){
+        amount += 1;
+        setAmount(amount);
     }
 }
