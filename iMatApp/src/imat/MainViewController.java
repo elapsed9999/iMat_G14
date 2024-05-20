@@ -2,15 +2,15 @@
 package imat;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.DecimalFormat;
+import java.util.*;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,6 +34,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML Label detailCategoriLabel;
 
     @FXML private FlowPane ProductFlowPane;
+    @FXML private ScrollPane ProductScrollPane;
     @FXML private FlowPane VarukorgFlowPane;
     @FXML private FlowPane CategoryFlowPane;
 
@@ -46,6 +47,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private ProductDetail productDetail;
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
+
+    private HashMap<Integer,ProductCard> productCardMap = new HashMap<>();
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -71,12 +74,17 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private void createProductCards(){
         ProductFlowPane.getChildren().clear();
+        productCardMap.clear();
         List<Product> products;
         if(selectedCategory == null){ products = iMatDataHandler.getProducts(); }
         else{ products = iMatDataHandler.getProducts(selectedCategory); }
+        ProductCard pc;
         for(Product product : products){
-            ProductFlowPane.getChildren().add(new ProductCard(product, this));
+            pc = new ProductCard(new ShoppingItem(product, 0), this);
+            productCardMap.put(product.getProductId(),pc);
+            ProductFlowPane.getChildren().add(pc);
         }
+        ProductScrollPane.setVvalue(0.0);
     }
 
     public String categoryToString(ProductCategory category){
@@ -93,12 +101,28 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void addVarukorgListItem(ShoppingItem shoppingItem){
         for(Node item : VarukorgFlowPane.getChildren()){
             VarukorgItem vi = (VarukorgItem) item;
-            if(vi.getShoppingItem() == shoppingItem){
-                vi.plusOne();
+            if(vi.getShoppingItem().getProduct().getProductId() == shoppingItem.getProduct().getProductId()){
                 return;
             }
         }
         VarukorgFlowPane.getChildren().add(new VarukorgItem(shoppingItem,this, false));
+    }
+
+    public void updateVarukorgList(ShoppingItem shoppingItem){
+        ArrayList<VarukorgItem> newList = new ArrayList<VarukorgItem>();
+        for(Node item : VarukorgFlowPane.getChildren()){
+            VarukorgItem vi = (VarukorgItem) item;
+            if(vi.getShoppingItem().getAmount() <= 0){
+                continue;
+            }
+            if( vi.getShoppingItem().getProduct().getProductId() == shoppingItem.getProduct().getProductId()){
+                vi.updateAmount();
+                productCardMap.get(vi.getShoppingItem().getProduct().getProductId()).updateAmount();
+            }
+            newList.add(vi);
+        }
+        VarukorgFlowPane.getChildren().clear();
+        for(VarukorgItem item : newList){ VarukorgFlowPane.getChildren().add(item); }
     }
     public void shoppingCartChanged(CartEvent event){
         String total = String.format("%2f",iMatDataHandler.getShoppingCart().getTotal());
@@ -107,6 +131,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         if(event.isAddEvent()){
             addVarukorgListItem(event.getShoppingItem());
         }
+        updateVarukorgList(event.getShoppingItem());
     }
     @FXML
     public void openDetailView(Product product){

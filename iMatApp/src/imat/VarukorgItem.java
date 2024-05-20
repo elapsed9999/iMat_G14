@@ -9,20 +9,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.Optional;
 
-public class VarukorgItem extends AnchorPane {
+public class VarukorgItem extends VarukorgItemController {
     @FXML private Label Name;
-    @FXML private Label Amount;
     @FXML private Button MinusButton;
     @FXML private Button PlusButton;
 
-    private ShoppingItem shoppingItem;
-    private MainViewController parentController;
-    private double amount = 1;
 
     public VarukorgItem(ShoppingItem shoppingItem, MainViewController parentController, boolean large){
         String fxml;
@@ -40,17 +37,9 @@ public class VarukorgItem extends AnchorPane {
         this.parentController = parentController;
         this.shoppingItem = shoppingItem;
         Name.setText(shoppingItem.getProduct().getName());
-        setAmount(shoppingItem.getAmount());
+        updateAmount();
     }
 
     public ShoppingItem getShoppingItem(){ return shoppingItem; }
 
-    public void setAmount(double amount){
-        Amount.setText(String.valueOf(amount) + " " + shoppingItem.getProduct().getUnitSuffix());
-    }
-
-    public void plusOne(){
-        amount += 1;
-        setAmount(amount);
-    }
 }

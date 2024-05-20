@@ -4,13 +4,6 @@
     -fx-border-width: 2px;
 }
 
-.footer_button {
-    -fx-background-color: #68C4AF;
-    -fx-font-weight: bold;
-} .footer_button: hover {
-     -fx-text-fill: #888888;
-}
-
 .continue_shopping_button: hover {
     -fx-text-fill: #888888;
 }

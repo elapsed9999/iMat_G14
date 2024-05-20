@@ -83,7 +83,7 @@
                   <AnchorPane fx:id="CenterStagePane" minHeight="-Infinity" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0" />
                   <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
                      <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane fx:id="ProductScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <FlowPane fx:id="ProductFlowPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" />
                            </content>

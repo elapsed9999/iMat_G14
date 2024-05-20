@@ -10,7 +10,7 @@
    <children>
       <Label fx:id="Name" layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="126.0" styleClass="text-sample" text="Namn" AnchorPane.topAnchor="9.0" />
       <Label fx:id="Amount" alignment="CENTER" layoutX="182.0" layoutY="9.0" prefHeight="20.0" prefWidth="61.0" styleClass="text-sample" text="0" AnchorPane.topAnchor="9.0" />
-      <Button fx:id="MinusButton" layoutX="141.0" layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="28.0" AnchorPane.topAnchor="3.0">
+      <Button fx:id="MinusButton" layoutX="141.0" layoutY="3.0" mnemonicParsing="false" onMouseClicked="#minusButtonClick" prefHeight="30.0" prefWidth="28.0" AnchorPane.topAnchor="3.0">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -19,7 +19,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="PlusButton" layoutX="246.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="14.0" AnchorPane.topAnchor="4.0">
+      <Button fx:id="PlusButton" layoutX="246.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#plusButtonClick" prefHeight="30.0" prefWidth="14.0" AnchorPane.topAnchor="4.0">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
