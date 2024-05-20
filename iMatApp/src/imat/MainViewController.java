@@ -2,6 +2,8 @@
 package imat;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.Event;
@@ -14,11 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductDetail;
+import se.chalmers.cse.dat216.project.*;
 
-public class MainViewController implements Initializable {
+public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML Label pathLabel;
     @FXML AnchorPane detailAnchor;
@@ -37,27 +37,47 @@ public class MainViewController implements Initializable {
 
     @FXML private StackPane stackPane;
 
+    @FXML private Label SumPrice;
+
     private Model model;
     private Product product;
     private ProductDetail productDetail;
+    private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
     public void initialize(URL url, ResourceBundle rb) {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
+        iMatDataHandler.getShoppingCart().addShoppingCartListener(this);
 
         pathLabel.setText(iMatDirectory);
 
         fullView.prefWidthProperty().bind(stackPane.widthProperty());
         fullView.prefHeightProperty().bind(stackPane.heightProperty());
+        detailView.prefWidthProperty().bind(stackPane.widthProperty());
+        detailView.prefHeightProperty().bind(stackPane.heightProperty());
 
-        for(int i = 0; i < 100; i++){
-            ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
-        }
+        createProductCards();
+
+        //for(int i = 0; i < 100; i++){
+        //    ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
+        //}
         for(int i = 0; i < 6; i++){
             VarukorgFlowPane.getChildren().add(new VarukorgItem(new Product(), iMatDataHandler, false));
         }
 
+    }
+    private void createProductCards(){
+        List<Product> products;
+        if(selectedCategory == null){ products = iMatDataHandler.getProducts(); }
+        else{ products = iMatDataHandler.getProducts(selectedCategory); }
+        for(Product product : products){
+            ProductFlowPane.getChildren().add(new ProductCard(new Product(), iMatDataHandler));
+        }
+    }
+
+    public void shoppingCartChanged(CartEvent event){
+        SumPrice.setText(String.valueOf(iMatDataHandler.getShoppingCart().getTotal()));
     }
     @FXML
     public void openDetailView(){

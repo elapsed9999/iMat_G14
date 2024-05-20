@@ -97,11 +97,14 @@
                      </children></AnchorPane>
                   <AnchorPane fx:id="VarukorgPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="234.0">
                      <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="741.0" prefWidth="300.0" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <FlowPane fx:id="VarukorgFlowPane" orientation="VERTICAL" />
                            </content>
                         </ScrollPane>
+                        <Label layoutX="14.0" layoutY="756.0" styleClass="text-sample" text="Summa:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+                        <Label layoutX="243.0" layoutY="755.0" styleClass="text-sample" text="Kr" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                        <Label fx:id="SumPrice" alignment="CENTER_RIGHT" layoutX="238.0" layoutY="757.0" prefHeight="20.0" prefWidth="54.0" styleClass="text-sample" text="0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="40.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="KategoriPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
