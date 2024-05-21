@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,6 +38,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private Label CenterStageNameLabel;
     @FXML private AnchorPane ErbjudandenPane;
 
+    @FXML private TextField SearchBar;
+    @FXML private ImageView SearchImage;
+
     @FXML private FlowPane ProductFlowPane;
     @FXML private ScrollPane ProductScrollPane;
     @FXML private FlowPane VarukorgFlowPane;
@@ -49,6 +53,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Model model;
     private Product product;
     private ProductDetail productDetail;
+
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -69,8 +74,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailView.prefHeightProperty().bind(stackPane.heightProperty());
 
         initializeTranslation();
+        initializeProductCards();
 
-        createProductCards();
+        setSelectedCategory(null);
         createCategoryList();
 
     }
@@ -99,27 +105,39 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         translationMap.put(ProductCategory.HERB, "Örter");
     }
 
-    public void setSelectedCategory(ProductCategory category) {
-        if(selectedCategory == null){
-            CenterStagePane.getChildren().remove(ErbjudandenPane);
-            AnchorPane.setTopAnchor(BrowsePane,0.0);
-        }
-        CenterStageNameLabel.setText(categoryToString(category));
-        this.selectedCategory = category;
-        createProductCards();
+    private void showErbjudanden(){
+        ErbjudandenPane.setVisible(true);
+        AnchorPane.setTopAnchor(BrowsePane,null);
+    }
+    private void hideErbjudanden(){
+        ErbjudandenPane.setVisible(false);
+        AnchorPane.setTopAnchor(BrowsePane, 0.0);
     }
 
-    private void createProductCards(){
-        ProductFlowPane.getChildren().clear();
-        productCardMap.clear();
-        List<Product> products;
-        if(selectedCategory == null){ products = iMatDataHandler.getProducts(); }
-        else{ products = iMatDataHandler.getProducts(selectedCategory); }
+    public void setSelectedCategory(ProductCategory category) {
+        if(category == null){
+            showErbjudanden();
+            createProductCards(iMatDataHandler.getProducts());
+            return;
+        }
+        else{ hideErbjudanden(); }
+        CenterStageNameLabel.setText(categoryToString(category));
+        this.selectedCategory = category;
+        createProductCards(iMatDataHandler.getProducts(selectedCategory));
+    }
+
+    private void initializeProductCards(){
         ProductCard pc;
-        for(Product product : products){
-            pc = new ProductCard(new ShoppingItem(product, 0), this);
+        for(Product product : iMatDataHandler.getProducts()){
+            pc = new ProductCard(new ShoppingItem(product,0),this);
             productCardMap.put(product.getProductId(),pc);
-            ProductFlowPane.getChildren().add(pc);
+        }
+    }
+
+    private void createProductCards(List<Product> products){
+        ProductFlowPane.getChildren().clear();
+        for(Product product : products){
+            ProductFlowPane.getChildren().add(productCardMap.get(product.getProductId()));
         }
         ProductScrollPane.setVvalue(0.0);
     }
@@ -130,6 +148,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private void createCategoryList(){
         CategoryFlowPane.getChildren().clear();
+        CategoryFlowPane.getChildren().add(new CategoryListItem(null,this));
         for(ProductCategory category : ProductCategory.values()){
             CategoryFlowPane.getChildren().add(new CategoryListItem(category, this));
         }
@@ -149,14 +168,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         ArrayList<VarukorgItem> newList = new ArrayList<VarukorgItem>();
         for(Node item : VarukorgFlowPane.getChildren()){
             VarukorgItem vi = (VarukorgItem) item;
-            if(vi.getShoppingItem().getAmount() <= 0){
-                continue;
-            }
             if( vi.getShoppingItem().getProduct().getProductId() == shoppingItem.getProduct().getProductId()){
                 vi.updateAmount();
                 productCardMap.get(vi.getShoppingItem().getProduct().getProductId()).updateAmount();
             }
-            newList.add(vi);
+            if(vi.getShoppingItem().getAmount() > 0){
+                newList.add(vi);
+            }
         }
         VarukorgFlowPane.getChildren().clear();
         for(VarukorgItem item : newList){ VarukorgFlowPane.getChildren().add(item); }
@@ -195,6 +213,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void closeImageMouseExited(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close.png")));
+    }
+
+    @FXML
+    public void searchImageClick(Event event){
+        if(SearchBar.getText() == ""){ return; }
+        hideErbjudanden();
+        CenterStageNameLabel.setText("\""+SearchBar.getText()+"\"");
+        createProductCards(iMatDataHandler.findProducts(SearchBar.getText()));
     }
     @FXML
     public void mouseTrap(Event event){
