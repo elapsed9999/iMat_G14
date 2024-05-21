@@ -32,6 +32,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML Label detailProductLabel;
     @FXML Label detailPriceLabel;
     @FXML Label detailCategoriLabel;
+    @FXML private AnchorPane BrowsePane;
+    @FXML private AnchorPane CenterStagePane;
+    @FXML private Label CenterStageNameLabel;
+    @FXML private AnchorPane ErbjudandenPane;
 
     @FXML private FlowPane ProductFlowPane;
     @FXML private ScrollPane ProductScrollPane;
@@ -50,6 +54,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private HashMap<Integer,ProductCard> productCardMap = new HashMap<>();
 
+    private HashMap<ProductCategory,String> translationMap = new HashMap<>();
+
     public void initialize(URL url, ResourceBundle rb) {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
@@ -62,13 +68,44 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailView.prefWidthProperty().bind(stackPane.widthProperty());
         detailView.prefHeightProperty().bind(stackPane.heightProperty());
 
+        initializeTranslation();
+
         createProductCards();
         createCategoryList();
 
     }
 
-    public void setSelectedCategory(ProductCategory selectedCategory) {
-        this.selectedCategory = selectedCategory;
+    private void initializeTranslation(){
+        translationMap.put(ProductCategory.POD, "Baljväxter");
+        translationMap.put(ProductCategory.BREAD, "Bröd");
+        translationMap.put(ProductCategory.BERRY, "Bär");
+        translationMap.put(ProductCategory.CITRUS_FRUIT, "Citrusfrukt");
+        translationMap.put(ProductCategory.HOT_DRINKS, "Varm dryck");
+        translationMap.put(ProductCategory.COLD_DRINKS, "Kall dryck");
+        translationMap.put(ProductCategory.EXOTIC_FRUIT, "Exotisk frukt");
+        translationMap.put(ProductCategory.FISH, "Fisk");
+        translationMap.put(ProductCategory.VEGETABLE_FRUIT, "Grönsaker");
+        translationMap.put(ProductCategory.CABBAGE, "Kål");
+        translationMap.put(ProductCategory.MEAT, "Kött");
+        translationMap.put(ProductCategory.DAIRIES, "Mejeriprodukter");
+        translationMap.put(ProductCategory.MELONS, "Melon");
+        translationMap.put(ProductCategory.FLOUR_SUGAR_SALT, "Mjöl, socker och salt");
+        translationMap.put(ProductCategory.NUTS_AND_SEEDS, "Nötter och frön");
+        translationMap.put(ProductCategory.PASTA, "Pasta");
+        translationMap.put(ProductCategory.POTATO_RICE, "Potatis och ris");
+        translationMap.put(ProductCategory.ROOT_VEGETABLE, "Rotfrukter");
+        translationMap.put(ProductCategory.FRUIT, "Frukt");
+        translationMap.put(ProductCategory.SWEET, "Sött");
+        translationMap.put(ProductCategory.HERB, "Örter");
+    }
+
+    public void setSelectedCategory(ProductCategory category) {
+        if(selectedCategory == null){
+            CenterStagePane.getChildren().remove(ErbjudandenPane);
+            AnchorPane.setTopAnchor(BrowsePane,0.0);
+        }
+        CenterStageNameLabel.setText(categoryToString(category));
+        this.selectedCategory = category;
         createProductCards();
     }
 
@@ -88,7 +125,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     public String categoryToString(ProductCategory category){
-        return String.valueOf(category).replaceAll("_"," ");
+        return translationMap.get(category);
     }
 
     private void createCategoryList(){

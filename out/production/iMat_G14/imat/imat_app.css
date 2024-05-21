@@ -41,15 +41,18 @@
     -fx-border-width: 1px;
  }
  .product-card-amount-button {
-    -fx-background-color: #68C4AF;
     -fx-border-color: #000000;
     -fx-border-radius: 18;
     -fx-background-radius: 18;
- } .product-card-amount-button: hover {
-    -fx-background-color: #94CCBF;
- } .product-card-amount-button: pressed {
-    -fx-background-color: #29BC9A;
- }
+}
+
+  .green-button {
+     -fx-background-color: #68C4AF;
+  } .green-button: hover {
+     -fx-background-color: #94CCBF;
+  } .green-button: pressed {
+     -fx-background-color: #29BC9A;
+  }
 
  .scroll-pane: focused {
     -fx-background-color: -fx-box-border, -fx-control-inner-background;
@@ -61,11 +64,4 @@
     -fx-text-fill: #888888;
  } .category-list-item:pressed {
     -fx-text-fill: #000000;
- }
-
- .navigation-button {
-     -fx-background-color: #68C4AF;
-     -fx-font-weight: bold;
- } .navigation-button: hover {
-      -fx-text-fill: #888888;
  }
