@@ -94,11 +94,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         fullView.prefHeightProperty().bind(stackPane.heightProperty());
         detailView.prefWidthProperty().bind(stackPane.widthProperty());
         detailView.prefHeightProperty().bind(stackPane.heightProperty());
+        leveransAnchor.prefWidthProperty().bind(stackPane.widthProperty());
         leveransAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-        leveransAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        varukorgAnchor.prefWidthProperty().bind(stackPane.widthProperty());
         varukorgAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-        varukorgAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-        betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        betalningAnchor.prefWidthProperty().bind(stackPane.widthProperty());
         betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
 
         VarukorgFlowPane = SmallVarukorgFlowPane;
@@ -109,7 +109,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         setSelectedCategory(null);
         createCategoryList();
-
     }
 
     private void initializeTranslation(){
@@ -139,9 +138,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void initializeErbjudanden(){
         Random rand = new Random();
         List<Product> products = iMatDataHandler.getProducts();
-        int randBase = rand.nextInt(products.size()-4);
+        ArrayList<Integer> randNumbers = new ArrayList<>();
         for(int i = 0; i < 4; i++){
-            int id = products.get(randBase+i).getProductId();
+            int r = rand.nextInt(products.size());
+            while(randNumbers.contains(r)){
+                r = rand.nextInt(products.size());
+            }
+            randNumbers.add(r);
+            int id = products.get(r).getProductId();
             ProductCard pc = productCardMap.get(id);
             ErbjudandenFlowPane.getChildren().add(new ProductCardSmall(pc.getShoppingItem(),this));
         }
@@ -173,18 +177,25 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
         ProductCard pc;
         ShoppingItem si;
+        outerloop:
         for(Product product : iMatDataHandler.getProducts()){
             si = new ShoppingItem(product,0);
             for(ShoppingItem item : items){
                 if(item.getProduct().getProductId() == product.getProductId()){
                     si = item;
+                    createProductCard(si);
                     iMatDataHandler.getShoppingCart().fireShoppingCartChanged(si,(si.getAmount()>0));
+                    continue outerloop;
                 }
             }
-            pc = new ProductCard(si,this);
-            productCardMap.put(product.getProductId(),pc);
+            createProductCard(si);
         }
         initializeErbjudanden();
+    }
+
+    private void createProductCard(ShoppingItem si){
+        ProductCard pc = new ProductCard(si,this);
+        productCardMap.put(si.getProduct().getProductId(),pc);
     }
 
     private void showProductCards(List<Product> products){
@@ -282,11 +293,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML public void openKlarnabetalning(){
         klarnaBetalningAnchor.toFront();
     }
-
     @FXML public void leveransToFront(){
         leveransAnchor.toFront();
     }
-
     @FXML public void returnCheckoutView5(){
         huvudbetalning.toFront();
     }
@@ -294,17 +303,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close_hover.png")));
     }
-
     @FXML public void closeImageMousePressed(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close_pressed.png")));
     }
-
     @FXML public void closeImageMouseExited(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close.png")));
     }
-
     @FXML public void searchImageClick(Event event){
         if(SearchBar.getText() == ""){ return; }
         hideErbjudanden();
@@ -321,8 +327,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailCategoriLabel.setText(categoryToString(product.getCategory()));
         detailArea.setText(iMatDataHandler.getDetail(product).getDescription());
         detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
-
-
     }
 
 }

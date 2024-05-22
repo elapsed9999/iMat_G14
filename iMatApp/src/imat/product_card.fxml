@@ -19,9 +19,9 @@
                </image>
             </ImageView>
             <Label fx:id="Name" alignment="CENTER" layoutY="128.0" prefHeight="18.0" prefWidth="110.0" styleClass="text-sample" stylesheets="@imat_app.css" text="Namn" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Label fx:id="Price" alignment="CENTER" layoutY="154.0" prefHeight="18.0" prefWidth="193.0" text="Pris" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label fx:id="Price" alignment="CENTER" layoutY="148.0" prefHeight="18.0" prefWidth="193.0" text="Pris" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <AnchorPane fx:id="AmountController" layoutX="18.0" layoutY="174.0" prefHeight="38.0" prefWidth="153.0" styleClass="product-card-amount-controller" AnchorPane.bottomAnchor="9.0">
