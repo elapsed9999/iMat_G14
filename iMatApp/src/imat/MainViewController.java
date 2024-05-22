@@ -108,6 +108,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void showErbjudanden(){
         ErbjudandenPane.setVisible(true);
         AnchorPane.setTopAnchor(BrowsePane,null);
+        CenterStageNameLabel.setText("Erbjudanden");
     }
     private void hideErbjudanden(){
         ErbjudandenPane.setVisible(false);
