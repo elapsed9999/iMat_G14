@@ -67,13 +67,21 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private ScrollPane ProductScrollPane;
     @FXML private FlowPane SmallVarukorgFlowPane;
     @FXML private FlowPane LargeVarukorgFlowPane;
-    private FlowPane VarukorgFlowPane;
+    @FXML private FlowPane VarukorgFlowPane;
     @FXML private FlowPane CategoryFlowPane;
+    @FXML private AnchorPane profileAnchor;
+
 
     @FXML private StackPane stackPane;
 
     @FXML private Label SumPriceMain;
     @FXML private Label SumPriceVarukorg;
+    @FXML private TextField profileName;
+    @FXML private TextField profilePhone;
+    @FXML private TextField profileAdress;
+    @FXML private TextField profilePostCode;
+    @FXML private TextField profileEmail;
+    @FXML private TextField profilePostCity;
     private Label SumPrice;
 
     private ProductCategory selectedCategory = null;
@@ -106,9 +114,61 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         initializeTranslation();
         initializeProductCards();
+        fillProfile();
 
         setSelectedCategory(null);
         createCategoryList();
+        Customer customer = iMatDataHandler.getCustomer();
+        if (customer == null) {
+            customer.setFirstName("Default");
+            customer.setLastName("User");
+            customer.setAddress("Default Address");
+            customer.setPostCode("00000");
+            customer.setEmail("default@example.com");
+            customer.setMobilePhoneNumber("0000000000");
+            customer.setPostCode("0000");
+        }
+
+        fillDeliveryPane();
+
+// Add listener to profileName TextField
+        profileName.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setFirstName(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
+        profilePhone.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setMobilePhoneNumber(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
+        profileAdress.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setAddress(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
+
+        profilePostCode.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setPostCode(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
+        profileEmail.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setEmail(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
+        profilePostCity.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCustomer().setPostAddress(newValue);
+            profileInformation();
+            iMatDataHandler.shutDown();
+
+        });
 
     }
 
@@ -257,6 +317,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         populateDetailView(product);
         detailAnchor.toFront();
     }
+    @FXML public void openProfileView(){
+        fillProfile();
+        profileAnchor.toFront();
+    }
     @FXML public void closeDetailView() {
         fullView.toFront();
     }
@@ -284,6 +348,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     @FXML public void leveransToFront(){
+        fillDeliveryPane();
         leveransAnchor.toFront();
     }
 
@@ -323,6 +388,48 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
 
 
+    }
+    public void profileInformation () {
+        iMatDataHandler.getCustomer().setFirstName(profileName.getText());
+        iMatDataHandler.getCustomer().setAddress(profileAdress.getText());
+        iMatDataHandler.getCustomer().setMobilePhoneNumber(profilePhone.getText());
+        iMatDataHandler.getCustomer().setPostCode(profilePostCode.getText());
+        iMatDataHandler.getCustomer().setPostAddress(profilePostCity.getText());
+        iMatDataHandler.getCustomer().setEmail(profileEmail.getText());
+    }
+    public void fillDeliveryPane () {
+        if (iMatDataHandler.getCustomer() == null) {
+            leveransName.setText("Default User");
+            leveransAdress.setText("Default Address");
+            leveransPostCode.setText("00000");
+            leveransEmail.setText("default@example.com");
+            leveransNumber.setText("0000000000");
+        } else {
+            leveransName.setText(iMatDataHandler.getCustomer().getFirstName() + " " + iMatDataHandler.getCustomer().getLastName());
+            leveransAdress.setText(iMatDataHandler.getCustomer().getAddress());
+            leveransPostCode.setText(iMatDataHandler.getCustomer().getPostCode());
+            leveransEmail.setText(iMatDataHandler.getCustomer().getEmail());
+            leveransNumber.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
+            leveransCity.setText(iMatDataHandler.getCustomer().getPostAddress());
+            leveransAdress.setText(iMatDataHandler.getCustomer().getAddress());
+        }
+    }
+    public void fillProfile () {
+        if (iMatDataHandler.getCustomer() == null) {
+            profileName.setText("Default User");
+            profileAdress.setText("Default Address");
+            profilePostCode.setText("00000");
+            profileEmail.setText("default@example.com");
+            profilePhone.setText("0000000000");
+            profilePostCity.setText("Göteborg");
+        } else {
+            profileName.setText(iMatDataHandler.getCustomer().getFirstName());
+            profileAdress.setText(iMatDataHandler.getCustomer().getAddress());
+            profilePostCode.setText(iMatDataHandler.getCustomer().getPostCode());
+            profileEmail.setText(iMatDataHandler.getCustomer().getEmail());
+            profilePhone.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
+            profilePostCity.setText(iMatDataHandler.getCustomer().getPostAddress());
+        }
     }
 
 }

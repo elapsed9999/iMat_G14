@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -16,6 +17,8 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1025.0" prefWidth="1441.0" style="-fx-background-color: #FFFFFF;" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
@@ -50,14 +53,14 @@
                         <Label alignment="CENTER" layoutX="110.0" layoutY="212.0" prefHeight="37.0" prefWidth="193.0" styleClass="leverans-labels" text="email:" />
                         <Label alignment="CENTER" layoutX="600.0" layoutY="214.0" prefHeight="37.0" prefWidth="193.0" styleClass="leverans-labels" text="telefon:" />
                         <Label alignment="CENTER" layoutX="110.0" layoutY="37.0" prefHeight="37.0" prefWidth="193.0" styleClass="leverans-labels" text="namn:" />
-                        <TextField layoutX="600.0" layoutY="424.0" prefHeight="39.0" prefWidth="239.0" />
-                        <TextField layoutX="600.0" layoutY="104.0" prefHeight="39.0" prefWidth="239.0" />
-                        <TextField layoutX="110.0" layoutY="270.0" prefHeight="39.0" prefWidth="239.0" />
-                        <TextField layoutX="600.0" layoutY="265.0" prefHeight="39.0" prefWidth="239.0" />
-                        <TextField layoutX="110.0" layoutY="423.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransCity" layoutX="600.0" layoutY="424.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransAdress" layoutX="600.0" layoutY="104.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransEmail" layoutX="110.0" layoutY="270.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransNumber" layoutX="600.0" layoutY="265.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransPostCode" layoutX="110.0" layoutY="423.0" prefHeight="39.0" prefWidth="239.0" />
                         <TextField layoutX="118.0" layoutY="103.0" prefHeight="39.0" prefWidth="239.0" />
                         <TextField layoutX="118.0" layoutY="103.0" prefHeight="39.0" prefWidth="239.0" />
-                        <TextField layoutX="110.0" layoutY="103.0" prefHeight="39.0" prefWidth="239.0" />
+                        <TextField fx:id="leveransName" layoutX="110.0" layoutY="103.0" prefHeight="39.0" prefWidth="239.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="HeaderPane1" layoutX="21.0" layoutY="20.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -140,6 +143,158 @@
                   <URL value="@checkout.css" />
                   <URL value="@imat_app.css" />
                </stylesheets>
+            </AnchorPane>
+            <AnchorPane fx:id="profileAnchor" maxHeight="874.0" maxWidth="1440.0" minHeight="874.0" minWidth="1440.0" prefHeight="874.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../../../../iMat_G_14/iMatApp/src/imat/imat_app.css">
+               <children>
+                  <AnchorPane fx:id="profilAnchor" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="84.0" prefWidth="300.0" text="PROFILMENY">
+                           <font>
+                              <Font name="Heiti SC Medium" size="42.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="miniHeaderAnchor" layoutX="300.0" maxHeight="84.0" maxWidth="1140.0" minHeight="84.0" minWidth="1140.0" prefHeight="84.0" prefWidth="1140.0">
+                     <children>
+                        <Label alignment="CENTER" maxHeight="84.0" maxWidth="840.0" minHeight="84.0" minWidth="840.0" onMouseClicked="#closeDetailView" prefHeight="84.0" prefWidth="840.0" text="Profilinformation" textAlignment="CENTER">
+                           <font>
+                              <Font name="Heiti SC Light" size="46.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane fx:id="profilAnchor2" layoutX="840.0" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+                  <Line endX="1207.5" layoutX="240.0" layoutY="84.0" startX="-256.0" />
+                  <AnchorPane fx:id="kvittoAnchor" layoutY="159.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;">
+                     <children>
+                        <Label fx:id="kvittoLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="300.0" styleClass="yo" text="  Kvitton" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerKvitton" endX="300.0" layoutY="75.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="profilAnchor1" layoutY="234.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;">
+                     <children>
+                        <Label fx:id="profileLabel1" contentDisplay="TOP" maxHeight="75.0" maxWidth="301.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="301.0" styleClass="disable" text="  Tidigare köp" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerProfile1" endX="300.0" layoutY="75.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="profilAnchor" layoutY="84.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #77c8b7;">
+                     <children>
+                        <Label fx:id="profileLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="225.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="225.0" text="  Din profil" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerProfile" endX="300.0" layoutY="75.0" />
+                     </children>
+                  </AnchorPane>
+                  <Line endX="100.0" endY="874.0" layoutX="200.0" startX="100.0" />
+                  <AnchorPane layoutX="455.0" layoutY="170.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label layoutX="43.0" layoutY="7.0" text="Namn">
+                           <font>
+                              <Font name="Heiti SC Light" size="36.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profileName" layoutX="202.0" layoutY="4.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="235.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label fx:id="teleNummer" layoutX="37.0" layoutY="7.0" text="Telefon">
+                           <font>
+                              <Font name="Heiti SC Light" size="36.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profilePhone" layoutX="184.0" layoutY="7.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="300.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label fx:id="teleNummer1" layoutX="37.0" layoutY="7.0" text="Email">
+                           <font>
+                              <Font name="Heiti SC Light" size="36.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profileEmail" layoutX="221.0" layoutY="12.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="365.0" prefHeight="50.0" prefWidth="450.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label fx:id="teleNummer2" layoutX="37.0" layoutY="7.0" text="Adress">
+                           <font>
+                              <Font name="Heiti SC Light" size="36.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profileAdress" layoutX="212.0" layoutY="-2.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="585.0" prefHeight="50.0" prefWidth="450.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
+                        <Label fx:id="teleNummer21" alignment="CENTER" layoutY="7.0" prefHeight="36.0" prefWidth="531.0" text="Förvald betalningsmetod" textAlignment="CENTER">
+                           <font>
+                              <Font name="Heiti SC Light" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="paymentLabel" alignment="CENTER" layoutX="4.0" layoutY="74.0" prefHeight="17.0" prefWidth="524.0" text="CREDIT">
+                           <font>
+                              <Font name="Heiti SC Light" size="44.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="427.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label layoutX="6.0" layoutY="6.0" text="postnummer">
+                           <font>
+                              <Font name="Heiti SC Light" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profilePostCode" layoutX="193.0" layoutY="-1.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="455.0" layoutY="495.0" prefHeight="50.0" prefWidth="450.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                        <Label fx:id="teleNummer22" layoutX="37.0" layoutY="7.0" text="Postort">
+                           <font>
+                              <Font name="Heiti SC Light" size="36.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="profilePostCity" layoutX="213.0" layoutY="3.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
             </AnchorPane>
             <AnchorPane fx:id="betalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1440.0">
                <children>
@@ -543,7 +698,7 @@
                               <Image url="@resources/search-svgrepo-com.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="ProfileImage" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ProfileImage" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/profile-image.png" />
                            </image>
