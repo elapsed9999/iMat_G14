@@ -90,6 +90,19 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         pathLabel.setText(iMatDirectory);
 
+        setWindowSize();
+
+        VarukorgFlowPane = SmallVarukorgFlowPane;
+        SumPrice = SumPriceMain;
+
+        initializeTranslation();
+        initializeProductCards();
+
+        setSelectedCategory(null);
+        createCategoryList();
+    }
+
+    private void setWindowSize(){
         fullView.prefWidthProperty().bind(stackPane.widthProperty());
         fullView.prefHeightProperty().bind(stackPane.heightProperty());
         detailView.prefWidthProperty().bind(stackPane.widthProperty());
@@ -101,14 +114,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         betalningAnchor.prefWidthProperty().bind(stackPane.widthProperty());
         betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
 
-        VarukorgFlowPane = SmallVarukorgFlowPane;
-        SumPrice = SumPriceMain;
-
-        initializeTranslation();
-        initializeProductCards();
-
-        setSelectedCategory(null);
-        createCategoryList();
+        
     }
 
     private void initializeTranslation(){
