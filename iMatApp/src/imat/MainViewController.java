@@ -104,16 +104,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         SumPrice = SumPriceMain;
 
         initializeTranslation();
-        initializeProductCards();
-
-        setSelectedCategory(null);
         createCategoryList();
-        initializeTranslation();
         initializeProductCards();
+        setSelectedCategory(null);
         fillProfile();
 
-        setSelectedCategory(null);
-        createCategoryList();
         Customer customer = iMatDataHandler.getCustomer();
         if (customer == null) {
             customer.setFirstName("Default");
