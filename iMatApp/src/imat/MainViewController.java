@@ -117,24 +117,33 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void setSelectedCategory(ProductCategory category) {
         if(category == null){
             showErbjudanden();
-            createProductCards(iMatDataHandler.getProducts());
+            showProductCards(iMatDataHandler.getProducts());
             return;
         }
         else{ hideErbjudanden(); }
         CenterStageNameLabel.setText(categoryToString(category));
         this.selectedCategory = category;
-        createProductCards(iMatDataHandler.getProducts(selectedCategory));
+        showProductCards(iMatDataHandler.getProducts(selectedCategory));
     }
 
     private void initializeProductCards(){
+        List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
         ProductCard pc;
+        ShoppingItem si;
         for(Product product : iMatDataHandler.getProducts()){
-            pc = new ProductCard(new ShoppingItem(product,0),this);
+            si = new ShoppingItem(product,0);
+            for(ShoppingItem item : items){
+                if(item.getProduct().getProductId() == product.getProductId()){
+                    si = item;
+                    iMatDataHandler.getShoppingCart().fireShoppingCartChanged(si,(si.getAmount()>0));
+                }
+            }
+            pc = new ProductCard(si,this);
             productCardMap.put(product.getProductId(),pc);
         }
     }
 
-    private void createProductCards(List<Product> products){
+    private void showProductCards(List<Product> products){
         ProductFlowPane.getChildren().clear();
         for(Product product : products){
             ProductFlowPane.getChildren().add(productCardMap.get(product.getProductId()));
@@ -220,7 +229,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         if(SearchBar.getText() == ""){ return; }
         hideErbjudanden();
         CenterStageNameLabel.setText("\""+SearchBar.getText()+"\"");
-        createProductCards(iMatDataHandler.findProducts(SearchBar.getText()));
+        showProductCards((iMatDataHandler.findProducts(SearchBar.getText())));
     }
     @FXML
     public void mouseTrap(Event event){
