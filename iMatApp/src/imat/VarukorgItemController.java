@@ -39,4 +39,6 @@ public class VarukorgItemController extends AnchorPane {
             sc.addItem(shoppingItem);
         }else{ sc.fireShoppingCartChanged(shoppingItem,false); }
     }
+
+    public ShoppingItem getShoppingItem(){ return shoppingItem; }
 }

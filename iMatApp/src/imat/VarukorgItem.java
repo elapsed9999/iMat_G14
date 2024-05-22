@@ -19,7 +19,7 @@ public class VarukorgItem extends VarukorgItemController {
     @FXML private Label Name;
     @FXML private ImageView Image;
     @FXML private Label Price;
-
+    @FXML private Boolean large;
 
     public VarukorgItem(ShoppingItem shoppingItem, MainViewController parentController, boolean large){
         String fxml;
@@ -36,15 +36,25 @@ public class VarukorgItem extends VarukorgItemController {
         }
         this.parentController = parentController;
         this.shoppingItem = shoppingItem;
+        this.large = large;
         Name.setText(shoppingItem.getProduct().getName());
         if(large){
             Image.setImage(parentController.iMatDataHandler.getFXImage(shoppingItem.getProduct()));
-            String priceText = String.valueOf(shoppingItem.getTotal());
-            Price.setText(priceText);
+            updatePrice();
         }
         updateAmount();
     }
 
+    @Override
+    public void updateAmount(){
+        super.updateAmount();
+        if(large){ updatePrice(); }
+    }
+
+    private void updatePrice(){
+        String priceText = String.format("%.2f",shoppingItem.getTotal());
+        Price.setText(priceText);
+    }
     public ShoppingItem getShoppingItem(){ return shoppingItem; }
 
 }

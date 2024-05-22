@@ -45,6 +45,11 @@
     -fx-border-radius: 18;
     -fx-background-radius: 18;
 }
+.product-card-small{
+    -fx-padding: 15px;
+    -fx-border-insets: 15px;
+    -fx-background-insets: 15px;
+}
 
   .green-button {
      -fx-background-color: #68C4AF;
@@ -60,10 +65,6 @@
     -fx-padding: 1;
  }
 
-.category-list-item-selected{
-    -fx-text-fill: #000000;
-    -fx-underline: true;
-}
 .category-list-item{
     -fx-text-fill: #444444;
  }.category-list-item:hover {

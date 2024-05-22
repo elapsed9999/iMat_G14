@@ -36,6 +36,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane CenterStagePane;
     @FXML private Label CenterStageNameLabel;
     @FXML private AnchorPane ErbjudandenPane;
+    @FXML private FlowPane ErbjudandenFlowPane;
     @FXML private Button ReturnButton1;
     @FXML private Button ContinueButton1;
     @FXML private Button ContinueButton;
@@ -74,10 +75,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private Label SumPriceMain;
     @FXML private Label SumPriceVarukorg;
     private Label SumPrice;
-
-    private Model model;
-    private Product product;
-    private ProductDetail productDetail;
 
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -139,6 +136,17 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         translationMap.put(ProductCategory.HERB, "Örter");
     }
 
+    private void initializeErbjudanden(){
+        Random rand = new Random();
+        List<Product> products = iMatDataHandler.getProducts();
+        int randBase = rand.nextInt(products.size()-4);
+        for(int i = 0; i < 4; i++){
+            int id = products.get(randBase+i).getProductId();
+            ProductCard pc = productCardMap.get(id);
+            ErbjudandenFlowPane.getChildren().add(new ProductCardSmall(pc.getShoppingItem(),this));
+        }
+    }
+
     private void showErbjudanden(){
         ErbjudandenPane.setVisible(true);
         AnchorPane.setTopAnchor(BrowsePane,null);
@@ -176,6 +184,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             pc = new ProductCard(si,this);
             productCardMap.put(product.getProductId(),pc);
         }
+        initializeErbjudanden();
     }
 
     private void showProductCards(List<Product> products){
@@ -224,7 +233,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         for(VarukorgItem item : newList){ VarukorgFlowPane.getChildren().add(item); }
     }
     public void shoppingCartChanged(CartEvent event){
-        String total = String.format("%2f",iMatDataHandler.getShoppingCart().getTotal());
+        String total = String.format("%.2f",iMatDataHandler.getShoppingCart().getTotal());
         SumPrice.setText(total);
 
         if(event.isAddEvent()){
@@ -258,7 +267,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
     @FXML public void openMainView(){
         fullView.toFront();
-        showErbjudanden();
+        setSelectedCategory(null);
         setVarukorg(SmallVarukorgFlowPane,SumPriceMain,false);
     }
     @FXML public void betalningToFront(){

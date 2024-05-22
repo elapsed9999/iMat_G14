@@ -411,7 +411,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1400.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="724.0" prefWidth="840.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
                      <children>
@@ -548,7 +548,7 @@
                               <Image url="@resources/profile-image.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="IconImage" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-5.0">
+                        <ImageView fx:id="IconImage" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-5.0">
                            <image>
                               <Image url="@resources/iMat_logo.png" />
                            </image>
@@ -561,7 +561,10 @@
                   </AnchorPane>
                   <AnchorPane fx:id="CenterStagePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0">
                      <children>
-                        <AnchorPane fx:id="ErbjudandenPane" minHeight="-Infinity" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="ErbjudandenPane" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FlowPane fx:id="ErbjudandenFlowPane" alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="110.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
                         <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
                               <ScrollPane fx:id="ProductScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
