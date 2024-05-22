@@ -155,7 +155,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             showProductCards(iMatDataHandler.getProducts());
             return;
         }
-        else{ hideErbjudanden(); }
+        hideErbjudanden();
         CenterStageNameLabel.setText(categoryToString(category));
         this.selectedCategory = category;
         showProductCards(iMatDataHandler.getProducts(selectedCategory));

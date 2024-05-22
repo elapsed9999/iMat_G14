@@ -60,7 +60,9 @@
     -fx-padding: 1;
  }
 
- .category-list-item:hover {
+.category-list-item{
+    -fx-text-fill: #444444;
+ }.category-list-item:hover {
     -fx-text-fill: #888888;
  } .category-list-item:pressed {
     -fx-text-fill: #000000;

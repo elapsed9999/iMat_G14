@@ -28,7 +28,6 @@ public class CategoryListItem extends AnchorPane {
         if(category == null){ Name.setText("Startsida"); }
         else{ Name.setText(parentController.categoryToString(category)); }
     }
-
     public void onClick(Event event){
         parentController.setSelectedCategory(this.category);
     }

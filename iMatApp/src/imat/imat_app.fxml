@@ -375,7 +375,7 @@
                   </StackPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="detailAnchor" onMouseClicked="#closeDetailView" styleClass="detail_view">
+            <AnchorPane fx:id="detailAnchor" minWidth="-Infinity" onMouseClicked="#closeDetailView" styleClass="detail_view">
                <children>
                   <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" styleClass="text-area" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="150.0">
                      <children>
@@ -411,7 +411,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="852.0" prefWidth="1491.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
                <children>
                   <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="724.0" prefWidth="840.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
                      <children>
