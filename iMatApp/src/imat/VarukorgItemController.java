@@ -2,6 +2,7 @@ package imat;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -11,6 +12,8 @@ public class VarukorgItemController extends AnchorPane {
     protected ShoppingItem shoppingItem;
     protected MainViewController parentController;
     @FXML protected Label Amount;
+    @FXML protected Button MinusButton;
+    @FXML protected Button PlusButton;
     public void updateAmount(){
         String amount_string;
         if(shoppingItem.getAmount() == (int)shoppingItem.getAmount()){

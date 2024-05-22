@@ -2,17 +2,13 @@
 package imat;
 
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.*;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,33 +18,62 @@ import se.chalmers.cse.dat216.project.*;
 
 public class MainViewController implements Initializable, ShoppingCartListener {
 
-    @FXML Label pathLabel;
-    @FXML AnchorPane detailAnchor;
-    @FXML AnchorPane detailView;
-    @FXML ImageView closeDetailView;
-    @FXML AnchorPane fullView;
-    @FXML ImageView detailProductImage;
-    @FXML TextArea detailArea;
-    @FXML TextArea detailAreaContent;
-    @FXML Label detailProductLabel;
-    @FXML Label detailPriceLabel;
-    @FXML Label detailCategoriLabel;
+    @FXML private Label pathLabel;
+    @FXML private AnchorPane detailAnchor;
+    @FXML private AnchorPane detailView;
+    @FXML private ImageView closeDetailView;
+    @FXML private AnchorPane varukorgAnchor;
+    @FXML private AnchorPane leveransAnchor;
+    @FXML private AnchorPane betalningAnchor;
+    @FXML private AnchorPane fullView;
+    @FXML private ImageView detailProductImage;
+    @FXML private TextArea detailArea;
+    @FXML private TextArea detailAreaContent;
+    @FXML private Label detailProductLabel;
+    @FXML private Label detailPriceLabel;
+    @FXML private Label detailCategoriLabel;
     @FXML private AnchorPane BrowsePane;
     @FXML private AnchorPane CenterStagePane;
     @FXML private Label CenterStageNameLabel;
     @FXML private AnchorPane ErbjudandenPane;
+    @FXML private Button ReturnButton1;
+    @FXML private Button ContinueButton1;
+    @FXML private Button ContinueButton;
+    @FXML private Button ReturnButton;
+    @FXML private Button ContinueShoppingButton;
+    @FXML private Label kortBetalning;
+    @FXML private AnchorPane huvudbetalning;
+    @FXML private TextField leveransName;
+    @FXML private TextField leveransEmail;
+    @FXML private TextField leveransAdress;
+    @FXML private TextField leveransPostCode;
+    @FXML private TextField leveransCity;
+    @FXML private TextField leveransNumber;
+
+    @FXML private Label swishBetalning;
+    @FXML private Label klarnaBetalning;
+    @FXML private AnchorPane kortBetalningAnchor;
+    @FXML private AnchorPane swishBetalningAnchor;
+    @FXML private AnchorPane klarnaBetalningAnchor;
+
+    @FXML private Button returnButton2;
+    @FXML private Button ContinueButton2;
 
     @FXML private TextField SearchBar;
     @FXML private ImageView SearchImage;
 
     @FXML private FlowPane ProductFlowPane;
     @FXML private ScrollPane ProductScrollPane;
-    @FXML private FlowPane VarukorgFlowPane;
+    @FXML private FlowPane SmallVarukorgFlowPane;
+    @FXML private FlowPane LargeVarukorgFlowPane;
+    private FlowPane VarukorgFlowPane;
     @FXML private FlowPane CategoryFlowPane;
 
     @FXML private StackPane stackPane;
 
-    @FXML private Label SumPrice;
+    @FXML private Label SumPriceMain;
+    @FXML private Label SumPriceVarukorg;
+    private Label SumPrice;
 
     private Model model;
     private Product product;
@@ -72,6 +97,15 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         fullView.prefHeightProperty().bind(stackPane.heightProperty());
         detailView.prefWidthProperty().bind(stackPane.widthProperty());
         detailView.prefHeightProperty().bind(stackPane.heightProperty());
+        leveransAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        leveransAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        varukorgAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        varukorgAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+        betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
+
+        VarukorgFlowPane = SmallVarukorgFlowPane;
+        SumPrice = SumPriceMain;
 
         initializeTranslation();
         initializeProductCards();
@@ -198,42 +232,77 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
         updateVarukorgList(event.getShoppingItem());
     }
-    @FXML
-    public void openDetailView(Product product){
+
+    private void setVarukorg(FlowPane Varukorg,Label Sum, Boolean large){
+        String text = SumPrice.getText();
+        SumPrice = Sum;
+        SumPrice.setText(text);
+        for(Node item : VarukorgFlowPane.getChildren()){
+            VarukorgItem vi = (VarukorgItem) item;
+            Varukorg.getChildren().add(new VarukorgItem(vi.getShoppingItem(),this,large));
+        }
+        VarukorgFlowPane.getChildren().clear();
+        VarukorgFlowPane = Varukorg;
+    }
+    @FXML public void openDetailView(Product product){
         populateDetailView(product);
         detailAnchor.toFront();
     }
-    @FXML
-    public void closeDetailView() {
+    @FXML public void closeDetailView() {
         fullView.toFront();
     }
-    @FXML
-    public void closeImageMouseEntered(){
+
+    @FXML public void varukorgToFront(){
+        varukorgAnchor.toFront();
+        setVarukorg(LargeVarukorgFlowPane,SumPriceVarukorg,true);
+    }
+    @FXML public void openMainView(){
+        fullView.toFront();
+        showErbjudanden();
+        setVarukorg(SmallVarukorgFlowPane,SumPriceMain,false);
+    }
+    @FXML public void betalningToFront(){
+        betalningAnchor.toFront();
+    }
+    @FXML public void openKortbetalning(){
+        kortBetalningAnchor.toFront();
+    }
+    @FXML public void openSwishbetalning(){
+        swishBetalningAnchor.toFront();
+    }
+    @FXML public void openKlarnabetalning(){
+        klarnaBetalningAnchor.toFront();
+    }
+
+    @FXML public void leveransToFront(){
+        leveransAnchor.toFront();
+    }
+
+    @FXML public void returnCheckoutView5(){
+        huvudbetalning.toFront();
+    }
+    @FXML public void closeImageMouseEntered(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close_hover.png")));
     }
 
-    @FXML
-    public void closeImageMousePressed(){
+    @FXML public void closeImageMousePressed(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close_pressed.png")));
     }
 
-    @FXML
-    public void closeImageMouseExited(){
+    @FXML public void closeImageMouseExited(){
         closeDetailView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "imat/resources/icon_close.png")));
     }
 
-    @FXML
-    public void searchImageClick(Event event){
+    @FXML public void searchImageClick(Event event){
         if(SearchBar.getText() == ""){ return; }
         hideErbjudanden();
         CenterStageNameLabel.setText("\""+SearchBar.getText()+"\"");
         showProductCards((iMatDataHandler.findProducts(SearchBar.getText())));
     }
-    @FXML
-    public void mouseTrap(Event event){
+    @FXML public void mouseTrap(Event event){
         event.consume();
     }
     private void populateDetailView(Product product){

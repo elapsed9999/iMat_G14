@@ -17,8 +17,8 @@ import java.util.Optional;
 
 public class VarukorgItem extends VarukorgItemController {
     @FXML private Label Name;
-    @FXML private Button MinusButton;
-    @FXML private Button PlusButton;
+    @FXML private ImageView Image;
+    @FXML private Label Price;
 
 
     public VarukorgItem(ShoppingItem shoppingItem, MainViewController parentController, boolean large){
@@ -37,6 +37,11 @@ public class VarukorgItem extends VarukorgItemController {
         this.parentController = parentController;
         this.shoppingItem = shoppingItem;
         Name.setText(shoppingItem.getProduct().getName());
+        if(large){
+            Image.setImage(parentController.iMatDataHandler.getFXImage(shoppingItem.getProduct()));
+            String priceText = String.valueOf(shoppingItem.getTotal());
+            Price.setText(priceText);
+        }
         updateAmount();
     }
 

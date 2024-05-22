@@ -19,8 +19,6 @@ public class ProductCard extends VarukorgItemController {
     @FXML private ImageView Image;
     @FXML private Label Name;
     @FXML private Label Price;
-    @FXML private Button MinusButton;
-    @FXML private Button PlusButton;
 
     public ProductCard(ShoppingItem shoppingItem, MainViewController parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));

@@ -6,14 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #EFEFEF;" styleClass="text-sample" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="874.0" style="-fx-background-color: transparent;" styleClass="text-sample" stylesheets="@imat_app.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="VarukorgItemName" layoutX="25.0" layoutY="17.0" styleClass="text-sample" text="Namn" />
-      <Label fx:id="VarukorgItemAmount" alignment="CENTER_RIGHT" layoutX="378.0" layoutY="17.0" prefHeight="20.0" prefWidth="26.0" styleClass="text-sample" text="0" />
-      <Label layoutX="407.0" layoutY="17.0" styleClass="text-sample" text="st" />
-      <Label layoutX="744.0" layoutY="17.0" styleClass="text-sample" text="kr" />
-      <Label fx:id="VarukorgItemPrice" alignment="CENTER_RIGHT" layoutX="705.0" layoutY="17.0" prefHeight="20.0" prefWidth="36.0" styleClass="text-sample" text="0" />
-      <Button fx:id="VarukorgItemMinusButton" layoutX="339.0" layoutY="10.0" mnemonicParsing="false">
+      <Label fx:id="Name" layoutX="93.0" layoutY="15.0" styleClass="text-sample" text="Namn" />
+      <Label fx:id="Amount" alignment="CENTER" layoutX="378.0" layoutY="17.0" prefHeight="20.0" prefWidth="51.0" styleClass="text-sample" text="0" />
+      <Label layoutX="744.0" layoutY="17.0" styleClass="text-sample" text="kr" AnchorPane.rightAnchor="40.0" />
+      <Label fx:id="Price" alignment="CENTER_RIGHT" layoutX="726.0" layoutY="17.0" prefHeight="20.0" styleClass="text-sample" text="0" AnchorPane.rightAnchor="63.0" />
+      <Button fx:id="MinusButton" layoutX="339.0" layoutY="10.0" mnemonicParsing="false" onAction="#minusButtonClick">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,7 +21,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="VarukorgItemPlusButton" layoutX="428.0" layoutY="10.0" mnemonicParsing="false">
+      <Button fx:id="PlusButton" layoutX="428.0" layoutY="10.0" mnemonicParsing="false" onAction="#plusButtonClick">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,5 +30,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fx:id="Image" fitHeight="39.0" fitWidth="62.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="5.0" />
    </children>
 </fx:root>
