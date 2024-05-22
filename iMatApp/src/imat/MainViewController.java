@@ -68,6 +68,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private FlowPane SmallVarukorgFlowPane;
     @FXML private FlowPane LargeVarukorgFlowPane;
     private FlowPane VarukorgFlowPane;
+    @FXML private ScrollPane SmallVarukorgScrollPane;
+    @FXML private ScrollPane LargeVarukorgScrollPane;
     @FXML private FlowPane CategoryFlowPane;
     @FXML private AnchorPane profileAnchor;
 
@@ -107,6 +109,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         createCategoryList();
         initializeProductCards();
         setSelectedCategory(null);
+
         fillProfile();
 
         Customer customer = iMatDataHandler.getCustomer();
@@ -122,61 +125,46 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         fillDeliveryPane();
 
+        initializeProfileTextFields();
+
 // Add listener to profileName TextField
+    }
+    private void initializeProfileTextFields(){
         profileName.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setFirstName(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
         profilePhone.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setMobilePhoneNumber(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
         profileAdress.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setAddress(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
 
         profilePostCode.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostCode(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
         profileEmail.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setEmail(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
         profilePostCity.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostAddress(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
-
         });
 
     }
 
     private void setWindowSize() {
-        fullView.prefWidthProperty().bind(stackPane.widthProperty());
-        fullView.prefHeightProperty().bind(stackPane.heightProperty());
-        detailView.prefWidthProperty().bind(stackPane.widthProperty());
-        detailView.prefHeightProperty().bind(stackPane.heightProperty());
-        leveransAnchor.prefWidthProperty().bind(stackPane.widthProperty());
-        leveransAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-        varukorgAnchor.prefWidthProperty().bind(stackPane.widthProperty());
-        varukorgAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-        betalningAnchor.prefWidthProperty().bind(stackPane.widthProperty());
-        betalningAnchor.prefHeightProperty().bind(stackPane.heightProperty());
-
-        VarukorgFlowPane = SmallVarukorgFlowPane;
-        SumPrice = SumPriceMain;
+        List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,
+                betalningAnchor,swishBetalningAnchor,klarnaBetalningAnchor,kortBetalningAnchor,huvudbetalning);
+        for(AnchorPane pane : anchorPanes){
+            pane.prefWidthProperty().bind(stackPane.widthProperty());
+            pane.prefHeightProperty().bind(stackPane.heightProperty());
+        }
     }
 
     private void initializeTranslation(){
@@ -322,6 +310,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     private void setVarukorg(FlowPane Varukorg,Label Sum, Boolean large){
+        if(Varukorg == VarukorgFlowPane){ return; }
         String text = SumPrice.getText();
         SumPrice = Sum;
         SumPrice.setText(text);
