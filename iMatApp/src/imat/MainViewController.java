@@ -118,6 +118,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane profilCreditCardAnchor;
     @FXML private AnchorPane ProfileMenuTidigareKöp1;
 
+    @FXML private Label DetailViewEkologiskt;
+
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -220,7 +222,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     private void setWindowSize() {
-        List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,
+        List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailAnchor,leveransAnchor,varukorgAnchor,profileAnchor,
                 betalningAnchor,huvudbetalning,endScreen);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(stackPane.widthProperty());
@@ -515,6 +517,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailCategoriLabel.setText(categoryToString(product.getCategory()));
         detailArea.setText(iMatDataHandler.getDetail(product).getDescription());
         detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
+        if(product.isEcological()){
+            DetailViewEkologiskt.setVisible(true);
+        }else{DetailViewEkologiskt.setVisible(false);}
     }
 
     private void populateOrderDetailView(Order order){
