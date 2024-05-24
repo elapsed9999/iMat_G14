@@ -319,6 +319,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void createProductCard(ShoppingItem si){
         ProductCard pc = new ProductCard(si,this);
         productCardMap.put(si.getProduct().getProductId(),pc);
+        pc.updateAmount();
     }
 
     private void showProductCards(List<Product> products){
