@@ -52,6 +52,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField leveransPostCode;
     @FXML private TextField leveransCity;
     @FXML private TextField leveransNumber;
+    @FXML private ComboBox cardTypeCombo;
+    @FXML private TextField betalningName;
+    @FXML private TextField betalningPersonnummer;
+    @FXML private TextField betalningCardNumber;
+    @FXML private TextField betalningExpiringDate;
+    @FXML private TextField betalningCVC;
+
 
     @FXML private Label swishBetalning;
     @FXML private Label klarnaBetalning;
@@ -85,14 +92,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField profileEmail;
     @FXML private TextField profilePostCity;
     private Label SumPrice;
-
-    @FXML private TextField creditCardNumber;
-    @FXML private ComboBox<String> creditCardType;
-    @FXML private TextField creditCardHolderName;
-    @FXML private TextField creditCardValidMonth;
-    @FXML private TextField creditCardValidYear;
-    @FXML private TextField creditCardCVC;
-
 
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -184,6 +183,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         profilePostCity.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostAddress(newValue);
             profileInformation();
+        });
+        cardTypeCombo.getItems().addAll("Välj kort", "Mastercard", "Visa", "American Express");
+        cardTypeCombo.getSelectionModel().select("Välj kort");
+
+        cardTypeCombo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setCardType((String) newValue);
         });
 
     }
@@ -459,6 +464,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             profilePhone.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
             profilePostCity.setText(iMatDataHandler.getCustomer().getPostAddress());
         }
+    }
+    public void betalningsMetod(){
+        cardTypeCombo.setValue(iMatDataHandler.getCreditCard().getCardType());
+        betalningName.setText(iMatDataHandler.getCreditCard().getHoldersName());
+        betalningCVC.setText(String.valueOf(iMatDataHandler.getCreditCard().getVerificationCode()));
+        betalningExpiringDate.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidMonth()) + "/" + iMatDataHandler.getCreditCard().getValidYear());
+        be
     }
 
     public void finishPayment(Event event){
