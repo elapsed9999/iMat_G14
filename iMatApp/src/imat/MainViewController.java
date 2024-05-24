@@ -4,6 +4,8 @@ package imat;
 import java.net.URL;
 import java.util.*;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -84,6 +86,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField profilePostCity;
     private Label SumPrice;
 
+    @FXML private TextField creditCardNumber;
+    @FXML private ComboBox<String> creditCardType;
+    @FXML private TextField creditCardHolderName;
+    @FXML private TextField creditCardValidMonth;
+    @FXML private TextField creditCardValidYear;
+    @FXML private TextField creditCardCVC;
+
+
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -122,9 +132,34 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
         initializeProfileTextFields();
 
-// Add listener to profileName TextField
+        initializeIntegerTextFields();
     }
+
+    private void initializeIntegerTextFields(){
+        Map<TextField,Integer> fields = Map.of(
+                /*creditCardNumber, 15
+                creditCardCVC, 3*/
+                profilePostCode, 5,
+                profilePhone, 10
+                /*creditCardValidMonth, 2,
+                creditCardValidYear, 2*/);
+        for(TextField tf : fields.keySet()) {
+            tf.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                    String newValue) {
+                    if (!newValue.matches("\\d*")) {
+                        tf.setText(newValue.replaceAll("[^\\d]", ""));
+                    } if(newValue.length() > fields.get(tf)){
+                        tf.setText(newValue.substring(0,fields.get(tf)));
+                    }
+                }
+            });
+        }
+    }
+
     private void initializeProfileTextFields(){
+        // Add listener to profileName TextField
         profileName.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setFirstName(newValue);
             profileInformation();
@@ -426,4 +461,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
+    public void finishPayment(Event event){
+        iMatDataHandler.placeOrder();
+        iMatDataHandler.getCreditCard().setCardNumber(creditCardNumber.getText());
+        iMatDataHandler.getCreditCard().setCardType(creditCardType.getValue());
+        iMatDataHandler.getCreditCard().setHoldersName(creditCardHolderName.getText());
+        iMatDataHandler.getCreditCard().setValidMonth(Integer.valueOf(creditCardValidMonth.getText()));
+        iMatDataHandler.getCreditCard().setValidYear(Integer.valueOf(creditCardValidYear.getText()));
+        iMatDataHandler.getCreditCard().setVerificationCode(Integer.valueOf(creditCardCVC.getText()));
+
+    }
 }
