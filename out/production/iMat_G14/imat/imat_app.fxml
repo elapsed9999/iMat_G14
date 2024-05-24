@@ -5,6 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -26,6 +27,185 @@
    <children>
       <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <AnchorPane fx:id="profileAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1590.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <AnchorPane fx:id="profilAnchor" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="84.0" prefWidth="300.0" text="PROFILMENY">
+                           <font>
+                              <Font name="Heiti SC Medium" size="42.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="miniHeaderAnchor" layoutX="300.0" maxHeight="84.0" maxWidth="1140.0" minHeight="84.0" minWidth="1140.0" prefHeight="84.0" prefWidth="1140.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label alignment="CENTER" maxHeight="84.0" maxWidth="840.0" minHeight="84.0" minWidth="840.0" onMouseClicked="#closeDetailView" prefHeight="84.0" prefWidth="840.0" text="Profilinformation" textAlignment="CENTER">
+                           <font>
+                              <Font name="Heiti SC Light" size="46.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane fx:id="profilAnchor2" layoutX="840.0" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+                  <Line endX="912.1827392578125" endY="-8.006156921386719" layoutX="240.0" layoutY="84.0" startX="-722.5014038085938" startY="-8.006088256835938" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="233.0" />
+                  <AnchorPane fx:id="kvittoAnchor" layoutY="159.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="309.0">
+                     <children>
+                        <Label fx:id="kvittoLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="300.0" styleClass="yo" text="  Kvitton">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerKvitton" endX="300.0" layoutY="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="profilAnchor1" layoutY="234.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="384.0">
+                     <children>
+                        <Label fx:id="profileLabel1" contentDisplay="TOP" maxHeight="75.0" maxWidth="301.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="301.0" styleClass="disable" text="  Tidigare köp">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerProfile1" endX="300.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="profilAnchor" layoutY="84.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #77c8b7;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <Label fx:id="profileLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="225.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="225.0" text="  Din profil" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Heiti SC Medium" size="32.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Line fx:id="dividerLowerProfile" endX="300.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <Line endX="100.0" endY="877.89990234375" layoutX="200.0" startX="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="150.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
+                     <children>
+                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="35.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label layoutX="43.0" layoutY="7.0" text="Namn">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profileName" layoutX="202.0" layoutY="4.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="95.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label fx:id="teleNummer" layoutX="37.0" layoutY="7.0" text="Telefon">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profilePhone" layoutX="184.0" layoutY="7.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="155.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label fx:id="teleNummer1" layoutX="37.0" layoutY="7.0" text="Email">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profileEmail" layoutX="221.0" layoutY="12.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="215.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label fx:id="teleNummer2" layoutX="37.0" layoutY="7.0" text="Adress">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profileAdress" layoutX="212.0" layoutY="-2.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="395.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
+                              <Label fx:id="teleNummer21" alignment="CENTER" layoutY="7.0" prefHeight="36.0" prefWidth="531.0" text="Förvald betalningsmetod" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="paymentLabel" alignment="CENTER" layoutX="4.0" layoutY="74.0" prefHeight="17.0" prefWidth="524.0" text="CREDIT">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="44.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="275.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label layoutX="6.0" layoutY="6.0" text="postnummer">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profilePostCode" layoutX="193.0" layoutY="-1.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="335.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
+                              <Label fx:id="teleNummer22" layoutX="37.0" layoutY="7.0" text="Postort">
+                                 <font>
+                                    <Font name="Heiti SC Light" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="profilePostCity" layoutX="213.0" layoutY="3.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="HeaderPane4" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fx:id="ProfileImage4" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/profile-image.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="IconImage4" fitHeight="150.0" fitWidth="300.0" layoutY="2.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@resources/iMat_logo.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="leveransAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
                <children>
                   <AnchorPane layoutX="110.0" layoutY="311.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -295,111 +475,46 @@
                   <URL value="@checkout.css" />
                </stylesheets>
             </AnchorPane>
+            <AnchorPane fx:id="detailAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeDetailView" styleClass="detail_view">
+               <children>
+                  <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" styleClass="text-area" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <ImageView fx:id="closeDetailView" fitHeight="29.0" fitWidth="29.0" layoutX="1093.0" layoutY="4.0" onMouseClicked="#closeImageMousePressed" onMouseEntered="#closeImageMouseEntered" onMouseExited="#closeImageMouseExited" onMousePressed="#closeDetailView" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_close.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="detailProductImage" fitHeight="292.0" fitWidth="302.0" layoutX="89.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="detailArea" layoutX="535.0" layoutY="430.0" prefHeight="302.0" prefWidth="477.0" />
+                        <Label fx:id="detailProductLabel" layoutX="561.0" layoutY="85.0" text="Label">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="detailPriceLabel" layoutX="564.0" layoutY="177.0" text="pris">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="detailCategoriLabel" layoutX="117.0" layoutY="23.0" prefHeight="33.0" prefWidth="116.0" text="kategori">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="564.0" layoutY="331.0" text="KÖP">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="detailAreaContent" layoutX="13.0" layoutY="425.0" prefHeight="302.0" prefWidth="477.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="betalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
                <children>
                   <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <AnchorPane fx:id="kortBetalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#returnCheckoutView5" styleClass="detail_view" stylesheets="@imat_app.css">
-                           <children>
-                              <AnchorPane layoutX="410.0" layoutY="238.0" prefHeight="534.0" prefWidth="592.0" style="-fx-background-color: #FFFFFF;">
-                                 <children>
-                                    <TextField layoutX="103.0" layoutY="271.0" prefHeight="27.0" prefWidth="380.0" promptText="XXX-XXX-XXX-XXX" />
-                                    <TextField layoutX="103.0" layoutY="339.0" prefHeight="36.0" prefWidth="143.0" promptText="MM/DD" />
-                                    <TextField layoutX="344.0" layoutY="338.0" prefHeight="26.0" prefWidth="136.0" promptText="XXX" />
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="247.0" prefHeight="23.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Kortnummer:">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="352.0" layoutY="313.0" prefHeight="23.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="CVC">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="313.0" prefHeight="23.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="utgångsdatum:">
-                                       <font>
-                                          <Font name="Arial Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="352.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Efternamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="103.0" layoutY="112.0" prefHeight="22.0" prefWidth="136.0" />
-                                    <TextField layoutX="344.0" layoutY="112.0" prefHeight="24.0" prefWidth="136.0" />
-                                    <TextField layoutX="103.0" layoutY="196.0" prefHeight="26.0" prefWidth="136.0" promptText="ÅÅÅÅ/MM/DD-XXXX" />
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="169.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Personnummer">
-                                       <font>
-                                          <Font name="Arial Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="236.0" layoutY="406.0" prefHeight="37.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="KLAR">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="klarnaBetalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#returnCheckoutView5" styleClass="detail_view" stylesheets="@imat_app.css">
-                           <children>
-                              <AnchorPane layoutX="410.0" layoutY="238.0" prefHeight="534.0" prefWidth="592.0" style="-fx-background-color: #FFFFFF;">
-                                 <children>
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="352.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Efternamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="103.0" layoutY="112.0" prefHeight="22.0" prefWidth="136.0" />
-                                    <TextField layoutX="344.0" layoutY="112.0" prefHeight="24.0" prefWidth="136.0" />
-                                    <TextField layoutX="103.0" layoutY="196.0" prefHeight="27.0" prefWidth="378.0" promptText="Telefon" />
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="169.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Telefonnummer">
-                                       <font>
-                                          <Font name="Arial Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="swishBetalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#returnCheckoutView5" styleClass="detail_view" stylesheets="@imat_app.css">
-                           <children>
-                              <AnchorPane layoutX="410.0" layoutY="238.0" prefHeight="534.0" prefWidth="592.0" style="-fx-background-color: #FFFFFF;">
-                                 <children>
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="352.0" layoutY="85.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Efternamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="103.0" layoutY="112.0" prefHeight="22.0" prefWidth="136.0" />
-                                    <TextField layoutX="344.0" layoutY="112.0" prefHeight="24.0" prefWidth="136.0" />
-                                    <TextField layoutX="103.0" layoutY="196.0" prefHeight="27.0" prefWidth="378.0" promptText="Telefon" />
-                                    <Label alignment="CENTER" layoutX="109.0" layoutY="169.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Telefonnummer">
-                                       <font>
-                                          <Font name="Arial Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
                         <AnchorPane fx:id="huvudbetalning" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="detail_view">
                            <children>
                               <AnchorPane layoutX="110.0" layoutY="311.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -422,24 +537,44 @@
                               </AnchorPane>
                               <AnchorPane fx:id="ScrollPaneInside2" layoutX="413.0" layoutY="227.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
                                  <children>
-                                    <AnchorPane layoutX="1.0" layoutY="8.0" prefHeight="521.0" prefWidth="769.0" style="-fx-background-color: #FFFFFF;">
+                                    <AnchorPane layoutX="11.0" layoutY="8.0" prefHeight="715.0" prefWidth="825.0" style="-fx-background-color: #FFFFFF;">
                                        <children>
-                                          <Label fx:id="kortBetalning" alignment="CENTER" layoutX="112.0" layoutY="165.0" onMouseClicked="#openKortbetalning" prefHeight="46.0" prefWidth="475.0" styleClass="payment-Buttons" text="Kort" textAlignment="CENTER" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0">
+                                          <TextField fx:id="betalningCardNumber" layoutX="202.0" layoutY="361.0" prefHeight="38.0" prefWidth="470.0" promptText="XXX-XXX-XXX-XXX" />
+                                          <TextField fx:id="betalningExpiringDate" layoutX="192.0" layoutY="469.0" prefHeight="36.0" prefWidth="143.0" promptText="MM/DD" />
+                                          <TextField fx:id="betalningCVC" layoutX="543.0" layoutY="478.0" prefHeight="26.0" prefWidth="136.0" promptText="XXX" />
+                                          <Label alignment="CENTER" layoutX="198.0" layoutY="311.0" prefHeight="39.0" prefWidth="137.0" styleClass="product-card-amount-controller" text="Kortnummer:">
                                              <font>
-                                                <Font name="Arial Bold" size="36.0" />
+                                                <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" layoutX="177.0" layoutY="63.0" prefHeight="48.0" prefWidth="336.0" styleClass="footer" text="Välj betalsätt" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="177.0">
+                                          <Label alignment="CENTER" layoutX="544.0" layoutY="424.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="CVC">
                                              <font>
-                                                <Font name="Arial Bold" size="36.0" />
+                                                <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="swishbetalning" alignment="CENTER" layoutX="118.0" layoutY="252.0" onMouseClicked="#openSwishbetalning" prefHeight="46.0" prefWidth="475.0" styleClass="payment-Buttons" text="Swish" textAlignment="CENTER" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0">
+                                          <Label alignment="CENTER" layoutX="197.0" layoutY="419.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="utgångsdatum:">
                                              <font>
-                                                <Font size="36.0" />
+                                                <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="klarnaBetalning" alignment="CENTER" layoutX="115.0" layoutY="346.0" onMouseClicked="#openKlarnabetalning" prefHeight="46.0" prefWidth="475.0" styleClass="payment-Buttons" text="Klarna" textAlignment="CENTER" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
+                                          <Label alignment="CENTER" layoutX="201.0" layoutY="207.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="betalningName" layoutX="191.0" layoutY="246.0" prefHeight="38.0" prefWidth="154.0" />
+                                          <TextField fx:id="betalningPersonnummer" layoutX="548.0" layoutY="246.0" prefHeight="39.0" prefWidth="148.0" promptText="ÅÅÅÅ/MM/DD-XXXX" />
+                                          <Label alignment="CENTER" layoutX="564.0" layoutY="210.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Personnummer">
+                                             <font>
+                                                <Font name="Arial Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="336.0" layoutY="561.0" prefHeight="74.0" prefWidth="175.0" styleClass="product-card-amount-controller" text="KLAR">
+                                             <font>
+                                                <Font name="Arial Bold" size="38.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="cardTypeCombo" layoutX="192.0" layoutY="103.0" prefHeight="39.0" prefWidth="206.0" promptText="cardTypeCombo" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -542,221 +677,6 @@
                         </AnchorPane>
                      </children>
                   </StackPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="detailAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeDetailView" styleClass="detail_view">
-               <children>
-                  <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" styleClass="text-area" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <ImageView fx:id="closeDetailView" fitHeight="29.0" fitWidth="29.0" layoutX="1093.0" layoutY="4.0" onMouseClicked="#closeImageMousePressed" onMouseEntered="#closeImageMouseEntered" onMouseExited="#closeImageMouseExited" onMousePressed="#closeDetailView" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icon_close.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="detailProductImage" fitHeight="292.0" fitWidth="302.0" layoutX="89.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextArea fx:id="detailArea" layoutX="535.0" layoutY="430.0" prefHeight="302.0" prefWidth="477.0" />
-                        <Label fx:id="detailProductLabel" layoutX="561.0" layoutY="85.0" text="Label">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="detailPriceLabel" layoutX="564.0" layoutY="177.0" text="pris">
-                           <font>
-                              <Font size="27.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="detailCategoriLabel" layoutX="117.0" layoutY="23.0" prefHeight="33.0" prefWidth="116.0" text="kategori">
-                           <font>
-                              <Font size="27.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="564.0" layoutY="331.0" text="KÖP">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </Label>
-                        <TextArea fx:id="detailAreaContent" layoutX="13.0" layoutY="425.0" prefHeight="302.0" prefWidth="477.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="profileAnchor" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1590.0" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <AnchorPane fx:id="profilAnchor" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="84.0" prefWidth="300.0" text="PROFILMENY">
-                           <font>
-                              <Font name="Heiti SC Medium" size="42.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="miniHeaderAnchor" layoutX="300.0" maxHeight="84.0" maxWidth="1140.0" minHeight="84.0" minWidth="1140.0" prefHeight="84.0" prefWidth="1140.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <Label alignment="CENTER" maxHeight="84.0" maxWidth="840.0" minHeight="84.0" minWidth="840.0" onMouseClicked="#closeDetailView" prefHeight="84.0" prefWidth="840.0" text="Profilinformation" textAlignment="CENTER">
-                           <font>
-                              <Font name="Heiti SC Light" size="46.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane fx:id="profilAnchor2" layoutX="840.0" maxHeight="84.0" maxWidth="300.0" minHeight="84.0" minWidth="300.0" prefHeight="84.0" prefWidth="300.0" />
-                     </children>
-                  </AnchorPane>
-                  <Line endX="912.1827392578125" endY="-8.006156921386719" layoutX="240.0" layoutY="84.0" startX="-722.5014038085938" startY="-8.006088256835938" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="233.0" />
-                  <AnchorPane fx:id="kvittoAnchor" layoutY="159.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="309.0">
-                     <children>
-                        <Label fx:id="kvittoLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="300.0" styleClass="yo" text="  Kvitton">
-                           <font>
-                              <Font name="Heiti SC Medium" size="32.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Label>
-                        <Line fx:id="dividerLowerKvitton" endX="300.0" layoutY="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="profilAnchor1" layoutY="234.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: 68C4AF;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="384.0">
-                     <children>
-                        <Label fx:id="profileLabel1" contentDisplay="TOP" maxHeight="75.0" maxWidth="301.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="301.0" styleClass="disable" text="  Tidigare köp">
-                           <font>
-                              <Font name="Heiti SC Medium" size="32.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Label>
-                        <Line fx:id="dividerLowerProfile1" endX="300.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="profilAnchor" layoutY="84.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #77c8b7;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
-                     <children>
-                        <Label fx:id="profileLabel" contentDisplay="TOP" maxHeight="75.0" maxWidth="225.0" minHeight="75.0" minWidth="225.0" prefHeight="75.0" prefWidth="225.0" text="  Din profil" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font name="Heiti SC Medium" size="32.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Label>
-                        <Line fx:id="dividerLowerProfile" endX="300.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-                  <Line endX="100.0" endY="877.89990234375" layoutX="200.0" startX="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="150.0" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
-                     <children>
-                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="35.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label layoutX="43.0" layoutY="7.0" text="Namn">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="36.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profileName" layoutX="202.0" layoutY="4.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="95.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label fx:id="teleNummer" layoutX="37.0" layoutY="7.0" text="Telefon">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="36.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profilePhone" layoutX="184.0" layoutY="7.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="155.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label fx:id="teleNummer1" layoutX="37.0" layoutY="7.0" text="Email">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="36.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profileEmail" layoutX="221.0" layoutY="12.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="215.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label fx:id="teleNummer2" layoutX="37.0" layoutY="7.0" text="Adress">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="36.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profileAdress" layoutX="212.0" layoutY="-2.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="395.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="531.0" />
-                              <Label fx:id="teleNummer21" alignment="CENTER" layoutY="7.0" prefHeight="36.0" prefWidth="531.0" text="Förvald betalningsmetod" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="paymentLabel" alignment="CENTER" layoutX="4.0" layoutY="74.0" prefHeight="17.0" prefWidth="524.0" text="CREDIT">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="44.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="275.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label layoutX="6.0" layoutY="6.0" text="postnummer">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="30.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profilePostCode" layoutX="193.0" layoutY="-1.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="50.0" prefWidth="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="335.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="404.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#77c8b7" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.5" width="200.0" />
-                              <Label fx:id="teleNummer22" layoutX="37.0" layoutY="7.0" text="Postort">
-                                 <font>
-                                    <Font name="Heiti SC Light" size="36.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="profilePostCity" layoutX="213.0" layoutY="3.0" prefHeight="42.0" prefWidth="323.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="2.0" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="HeaderPane4" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ImageView fx:id="ProfileImage4" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/profile-image.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView fx:id="IconImage4" fitHeight="150.0" fitWidth="300.0" layoutY="2.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@resources/iMat_logo.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </AnchorPane>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="fullView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">

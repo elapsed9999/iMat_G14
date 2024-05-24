@@ -511,6 +511,174 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="betalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane fx:id="huvudbetalning" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="detail_view">
+                           <children>
+                              <AnchorPane layoutX="110.0" layoutY="311.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <InnerShadow height="11.0" radius="5.0" width="11.0">
+                                       <color>
+                                          <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
+                                       </color>
+                                    </InnerShadow>
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane layoutX="1148.0" layoutY="279.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <InnerShadow height="11.0" radius="5.0" width="11.0">
+                                       <color>
+                                          <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
+                                       </color>
+                                    </InnerShadow>
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ScrollPaneInside2" layoutX="413.0" layoutY="227.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
+                                 <children>
+                                    <AnchorPane layoutX="11.0" layoutY="8.0" prefHeight="715.0" prefWidth="825.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <TextField fx:id="betalningCardNumber" layoutX="202.0" layoutY="361.0" prefHeight="38.0" prefWidth="470.0" promptText="XXX-XXX-XXX-XXX" />
+                                          <TextField fx:id="betalningExpiringDate" layoutX="192.0" layoutY="469.0" prefHeight="36.0" prefWidth="143.0" promptText="MM/DD" />
+                                          <TextField fx:id="betalningCVC" layoutX="543.0" layoutY="478.0" prefHeight="26.0" prefWidth="136.0" promptText="XXX" />
+                                          <Label alignment="CENTER" layoutX="198.0" layoutY="311.0" prefHeight="39.0" prefWidth="137.0" styleClass="product-card-amount-controller" text="Kortnummer:">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="544.0" layoutY="424.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="CVC">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="197.0" layoutY="419.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="utgångsdatum:">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="201.0" layoutY="207.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="betalningName" layoutX="191.0" layoutY="246.0" prefHeight="38.0" prefWidth="154.0" />
+                                          <TextField fx:id="betalningPersonnummer" layoutX="548.0" layoutY="246.0" prefHeight="39.0" prefWidth="148.0" promptText="ÅÅÅÅ/MM/DD-XXXX" />
+                                          <Label alignment="CENTER" layoutX="564.0" layoutY="210.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Personnummer">
+                                             <font>
+                                                <Font name="Arial Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="336.0" layoutY="561.0" prefHeight="74.0" prefWidth="175.0" styleClass="product-card-amount-controller" text="KLAR">
+                                             <font>
+                                                <Font name="Arial Bold" size="38.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="cardTypeCombo" layoutX="192.0" layoutY="103.0" prefHeight="39.0" prefWidth="206.0" promptText="cardTypeCombo" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="HeaderPane3" layoutX="21.0" layoutY="20.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fx:id="ProfileImage3" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
+                                       <image>
+                                          <Image url="@resources/profile-image.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                    <ImageView fx:id="IconImage3" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@resources/iMat_logo.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                    <Label fx:id="NavigationTextVarukorg2" layoutX="629.0" layoutY="56.0" onMouseClicked="#varukorgToFront" text="Varukorg" AnchorPane.leftAnchor="630.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="navigation_text" />
+                                          <String fx:value="text_large" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="NavigationTextLeverans2" alignment="CENTER" layoutX="838.0" layoutY="58.0" onMouseClicked="#leveransToFront" text="Leverans" AnchorPane.leftAnchor="847.0" AnchorPane.rightAnchor="460.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="navigation_text" />
+                                          <String fx:value="text_large" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="NavigationTextBetalning2" layoutX="1053.0" layoutY="58.0" text="Betalning" AnchorPane.rightAnchor="260.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="navigation_text_current_page" />
+                                          <String fx:value="text_large" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Button fx:id="ContinueShoppingButton2" layoutX="339.0" layoutY="46.0" mnemonicParsing="false" onAction="#closeDetailView" onMouseClicked="#openMainView" style="-fx-background-color: #EEEEEE;" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <styleClass>
+                                          <String fx:value="text_large" />
+                                          <String fx:value="continue_shopping_button" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Button fx:id="ReturnButton2" layoutX="42.0" layoutY="37.0" mnemonicParsing="false" onAction="#leveransToFront" prefHeight="74.0" prefWidth="198.0" text="Tillbaka" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="70.0">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <styleClass>
+                                          <String fx:value="footer_button" />
+                                          <String fx:value="text_large" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="ContinueButton2" layoutX="1170.0" layoutY="37.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="198.0" text="Fortsätt" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="70.0">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <styleClass>
+                                          <String fx:value="footer_button" />
+                                          <String fx:value="text_large" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <stylesheets>
+                              <URL value="@checkout.css" />
+                              <URL value="@imat_app.css" />
+                           </stylesheets>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="fullView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
                <children>
                   <AnchorPane fx:id="HeaderPane" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -612,173 +780,5 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <AnchorPane fx:id="betalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-         <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <AnchorPane fx:id="huvudbetalning" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="detail_view">
-                     <children>
-                        <AnchorPane layoutX="110.0" layoutY="311.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <effect>
-                              <InnerShadow height="11.0" radius="5.0" width="11.0">
-                                 <color>
-                                    <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
-                                 </color>
-                              </InnerShadow>
-                           </effect>
-                        </AnchorPane>
-                        <AnchorPane layoutX="1148.0" layoutY="279.0" maxWidth="300.0" minWidth="300.0" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <effect>
-                              <InnerShadow height="11.0" radius="5.0" width="11.0">
-                                 <color>
-                                    <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
-                                 </color>
-                              </InnerShadow>
-                           </effect>
-                        </AnchorPane>
-                        <AnchorPane fx:id="ScrollPaneInside2" layoutX="413.0" layoutY="227.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
-                           <children>
-                              <AnchorPane layoutX="11.0" layoutY="8.0" prefHeight="715.0" prefWidth="825.0" style="-fx-background-color: #FFFFFF;">
-                                 <children>
-                                    <TextField fx:id="betalningCardNumber" layoutX="202.0" layoutY="361.0" prefHeight="38.0" prefWidth="470.0" promptText="XXX-XXX-XXX-XXX" />
-                                    <TextField fx:id="betalningExpiringDate" layoutX="192.0" layoutY="469.0" prefHeight="36.0" prefWidth="143.0" promptText="MM/DD" />
-                                    <TextField fx:id="betalningCVC" layoutX="543.0" layoutY="478.0" prefHeight="26.0" prefWidth="136.0" promptText="XXX" />
-                                    <Label alignment="CENTER" layoutX="198.0" layoutY="311.0" prefHeight="39.0" prefWidth="137.0" styleClass="product-card-amount-controller" text="Kortnummer:">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="544.0" layoutY="424.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="CVC">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="197.0" layoutY="419.0" prefHeight="39.0" prefWidth="141.0" styleClass="product-card-amount-controller" text="utgångsdatum:">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="201.0" layoutY="207.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Förnamn">
-                                       <font>
-                                          <Font name="Arial Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="betalningName" layoutX="191.0" layoutY="246.0" prefHeight="38.0" prefWidth="154.0" />
-                                    <TextField fx:id="betalningPersonnummer" layoutX="548.0" layoutY="246.0" prefHeight="39.0" prefWidth="148.0" promptText="ÅÅÅÅ/MM/DD-XXXX" />
-                                    <Label alignment="CENTER" layoutX="564.0" layoutY="210.0" prefHeight="25.0" prefWidth="120.0" styleClass="product-card-amount-controller" text="Personnummer">
-                                       <font>
-                                          <Font name="Arial Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="CENTER" layoutX="336.0" layoutY="561.0" prefHeight="74.0" prefWidth="175.0" styleClass="product-card-amount-controller" text="KLAR">
-                                       <font>
-                                          <Font name="Arial Bold" size="38.0" />
-                                       </font>
-                                    </Label>
-                                    <ComboBox fx:id="cardTypeCombo" layoutX="192.0" layoutY="103.0" prefHeight="39.0" prefWidth="206.0" promptText="cardTypeCombo" />
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="HeaderPane3" layoutX="21.0" layoutY="20.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <ImageView fx:id="ProfileImage3" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
-                                 <image>
-                                    <Image url="@resources/profile-image.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="IconImage3" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <image>
-                                    <Image url="@resources/iMat_logo.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label fx:id="NavigationTextVarukorg2" layoutX="629.0" layoutY="56.0" onMouseClicked="#varukorgToFront" text="Varukorg" AnchorPane.leftAnchor="630.0">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="navigation_text" />
-                                    <String fx:value="text_large" />
-                                 </styleClass>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                              <Label fx:id="NavigationTextLeverans2" alignment="CENTER" layoutX="838.0" layoutY="58.0" onMouseClicked="#leveransToFront" text="Leverans" AnchorPane.leftAnchor="847.0" AnchorPane.rightAnchor="460.0">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="navigation_text" />
-                                    <String fx:value="text_large" />
-                                 </styleClass>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                              <Label fx:id="NavigationTextBetalning2" layoutX="1053.0" layoutY="58.0" text="Betalning" AnchorPane.rightAnchor="260.0">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="navigation_text_current_page" />
-                                    <String fx:value="text_large" />
-                                 </styleClass>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                              <Button fx:id="ContinueShoppingButton2" layoutX="339.0" layoutY="46.0" mnemonicParsing="false" onAction="#closeDetailView" onMouseClicked="#openMainView" style="-fx-background-color: #EEEEEE;" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <styleClass>
-                                    <String fx:value="text_large" />
-                                    <String fx:value="continue_shopping_button" />
-                                 </styleClass>
-                              </Button>
-                           </children>
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                        </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <Button fx:id="ReturnButton2" layoutX="42.0" layoutY="37.0" mnemonicParsing="false" onAction="#leveransToFront" prefHeight="74.0" prefWidth="198.0" text="Tillbaka" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="70.0">
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <styleClass>
-                                    <String fx:value="footer_button" />
-                                    <String fx:value="text_large" />
-                                 </styleClass>
-                              </Button>
-                              <Button fx:id="ContinueButton2" layoutX="1170.0" layoutY="37.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="198.0" text="Fortsätt" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="70.0">
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <styleClass>
-                                    <String fx:value="footer_button" />
-                                    <String fx:value="text_large" />
-                                 </styleClass>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                     <stylesheets>
-                        <URL value="@checkout.css" />
-                        <URL value="@imat_app.css" />
-                     </stylesheets>
-                  </AnchorPane>
-               </children>
-            </StackPane>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

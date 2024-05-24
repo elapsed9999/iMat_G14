@@ -54,11 +54,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField leveransNumber;
     @FXML private ComboBox cardTypeCombo;
     @FXML private TextField betalningName;
-    @FXML private TextField betalningPersonnummer;
     @FXML private TextField betalningCardNumber;
-    @FXML private TextField betalningExpiringDate;
+    @FXML private TextField betalningExpiringMonth;
+    @FXML private TextField betalningExpiringYear;
     @FXML private TextField betalningCVC;
 
+    @FXML private AnchorPane orderDetailAnchor;
 
     @FXML private Label swishBetalning;
     @FXML private Label klarnaBetalning;
@@ -136,12 +137,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private void initializeIntegerTextFields(){
         Map<TextField,Integer> fields = Map.of(
-                /*creditCardNumber, 15
-                creditCardCVC, 3*/
+                betalningCardNumber, 15,
+                betalningCVC, 3,
                 profilePostCode, 5,
-                profilePhone, 10
-                /*creditCardValidMonth, 2,
-                creditCardValidYear, 2*/);
+                profilePhone, 10/*,
+                betalningExpiringMonth, 2,
+                betalningExpiringYear, 2*/);
         for(TextField tf : fields.keySet()) {
             tf.textProperty().addListener(new ChangeListener<String>() {
                 @Override
@@ -194,8 +195,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     private void setWindowSize() {
-        List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,
-                betalningAnchor,swishBetalningAnchor,klarnaBetalningAnchor,kortBetalningAnchor,huvudbetalning);
+        List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,huvudbetalning);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(stackPane.widthProperty());
             pane.prefHeightProperty().bind(stackPane.heightProperty());
@@ -245,7 +245,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void showErbjudanden(){
         ErbjudandenPane.setVisible(true);
         AnchorPane.setTopAnchor(BrowsePane,null);
-        CenterStageNameLabel.setText("Erbjudanden");
+        CenterStageNameLabel.setText("ERBJUDANDEN");
     }
     private void hideErbjudanden(){
         ErbjudandenPane.setVisible(false);
@@ -259,7 +259,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             return;
         }
         hideErbjudanden();
-        CenterStageNameLabel.setText(categoryToString(category));
+        CenterStageNameLabel.setText(categoryToString(category).toUpperCase());
         this.selectedCategory = category;
         showProductCards(iMatDataHandler.getProducts(selectedCategory));
     }
@@ -360,6 +360,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         populateDetailView(product);
         detailAnchor.toFront();
     }
+
+    public void openOrderDetailView(Order order){
+        populateOrderDetailView(order);
+        orderDetailAnchor.toFront();
+    }
     @FXML public void openProfileView(){
         fillProfile();
         profileAnchor.toFront();
@@ -416,7 +421,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML public void searchImageClick(Event event){
         if(SearchBar.getText() == ""){ return; }
         hideErbjudanden();
-        CenterStageNameLabel.setText("\""+SearchBar.getText()+"\"");
+        CenterStageNameLabel.setText(("\""+SearchBar.getText()+"\"").toUpperCase());
         showProductCards((iMatDataHandler.findProducts(SearchBar.getText())));
     }
     @FXML public void mouseTrap(Event event){
@@ -429,8 +434,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailCategoriLabel.setText(categoryToString(product.getCategory()));
         detailArea.setText(iMatDataHandler.getDetail(product).getDescription());
         detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
-
-
+    }
+    private void populateOrderDetailView(Order order){
+        return;
     }
     public void profileInformation () {
         iMatDataHandler.getCustomer().setFirstName(profileName.getText());
@@ -464,23 +470,5 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             profilePhone.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
             profilePostCity.setText(iMatDataHandler.getCustomer().getPostAddress());
         }
-    }
-    public void betalningsMetod(){
-        cardTypeCombo.setValue(iMatDataHandler.getCreditCard().getCardType());
-        betalningName.setText(iMatDataHandler.getCreditCard().getHoldersName());
-        betalningCVC.setText(String.valueOf(iMatDataHandler.getCreditCard().getVerificationCode()));
-        betalningExpiringDate.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidMonth()) + "/" + iMatDataHandler.getCreditCard().getValidYear());
-        be
-    }
-
-    public void finishPayment(Event event){
-        iMatDataHandler.placeOrder();
-        iMatDataHandler.getCreditCard().setCardNumber(creditCardNumber.getText());
-        iMatDataHandler.getCreditCard().setCardType(creditCardType.getValue());
-        iMatDataHandler.getCreditCard().setHoldersName(creditCardHolderName.getText());
-        iMatDataHandler.getCreditCard().setValidMonth(Integer.valueOf(creditCardValidMonth.getText()));
-        iMatDataHandler.getCreditCard().setValidYear(Integer.valueOf(creditCardValidYear.getText()));
-        iMatDataHandler.getCreditCard().setVerificationCode(Integer.valueOf(creditCardCVC.getText()));
-
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="417.0" style="-fx-border-color: #000000;" stylesheets="@imat_app.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="Date" layoutX="14.0" layoutY="9.0" styleClass="text-sample" text="Date" />
+      <Label layoutX="487.0" layoutY="9.0" styleClass="text-sample" text="kr" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="Price" alignment="CENTER_RIGHT" layoutX="462.0" layoutY="9.0" style="-fx-underline: true;" styleClass="text-sample" text="0" AnchorPane.rightAnchor="35.0" />
+      <Label layoutX="189.0" layoutY="9.0" styleClass="text-sample" text="Summa betalning: " AnchorPane.rightAnchor="110.0" />
+   </children>
+</fx:root>
