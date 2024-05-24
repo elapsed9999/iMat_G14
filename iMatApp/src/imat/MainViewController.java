@@ -58,6 +58,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField betalningCardNumber;
     @FXML private TextField betalningExpiringDate;
     @FXML private TextField betalningCVC;
+    @FXML private TextField betalningExpiringDateYear;
+
+
 
 
     @FXML private Label swishBetalning;
@@ -79,6 +82,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private FlowPane VarukorgFlowPane;
     @FXML private FlowPane CategoryFlowPane;
     @FXML private AnchorPane profileAnchor;
+    @FXML private AnchorPane endScreen;
 
 
     @FXML private StackPane stackPane;
@@ -116,8 +120,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         createCategoryList();
         initializeProductCards();
         setSelectedCategory(null);
-
+        initializeIntegerTextFields();
         fillProfile();
+        betalningsMetod();
+        fillDeliveryPane();
 
         Customer customer = iMatDataHandler.getCustomer();
         if (customer == null) {
@@ -164,6 +170,27 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         cardTypeCombo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCreditCard().setCardType((String) newValue);
+            BetalningsMetodInfo();
+        });
+        betalningCardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setCardNumber(newValue);
+            BetalningsMetodInfo();
+        });
+        betalningCVC.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setVerificationCode(Integer.parseInt(newValue));
+            BetalningsMetodInfo();
+        });
+        betalningName.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setHoldersName(newValue);
+            BetalningsMetodInfo();
+        });
+        betalningExpiringDate.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setValidMonth(Integer.parseInt(newValue));
+            BetalningsMetodInfo();
+        });
+        betalningExpiringDateYear.textProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setValidYear(Integer.parseInt(newValue));
+            BetalningsMetodInfo();
         });
 
     }
@@ -353,6 +380,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         setVarukorg(SmallVarukorgFlowPane,SumPriceMain,false);
     }
     @FXML public void betalningToFront(){
+        betalningsMetod();
         betalningAnchor.toFront();
     }
     @FXML public void openKortbetalning(){
@@ -366,10 +394,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     @FXML public void leveransToFront(){
-        fillDeliveryPane();
         leveransAnchor.toFront();
     }
-
+    @FXML public void endScreenToFront(){
+        endScreen.toFront();
+    }
     @FXML public void returnCheckoutView5(){
         huvudbetalning.toFront();
     }
@@ -445,7 +474,37 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         cardTypeCombo.setValue(iMatDataHandler.getCreditCard().getCardType());
         betalningName.setText(iMatDataHandler.getCreditCard().getHoldersName());
         betalningCVC.setText(String.valueOf(iMatDataHandler.getCreditCard().getVerificationCode()));
-        betalningExpiringDate.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidMonth()) + "/" + iMatDataHandler.getCreditCard().getValidYear());
-        be
+        betalningExpiringDate.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidMonth()));
+        betalningCardNumber.setText(iMatDataHandler.getCreditCard().getCardNumber());
+        betalningExpiringDateYear.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidYear()));
+    }
+    public void BetalningsMetodInfo(){
+        iMatDataHandler.getCreditCard().setCardType((String) cardTypeCombo.getValue());
+        iMatDataHandler.getCreditCard().setCardNumber(betalningCardNumber.getText());
+        iMatDataHandler.getCreditCard().setValidYear(Integer.parseInt(betalningExpiringDateYear.getText()));
+        iMatDataHandler.getCreditCard().setValidMonth(Integer.parseInt(betalningExpiringDate.getText()));
+        iMatDataHandler.getCreditCard().setHoldersName(betalningName.getText());
+    }
+    private void initializeIntegerTextFields(){
+        Map<TextField,Integer> fields = Map.of(
+                betalningCardNumber, 15,
+                betalningCVC, 3,
+                profilePostCode, 5,
+                profilePhone, 10,
+                betalningExpiringDate, 2,
+                betalningExpiringDateYear, 2);
+        for(TextField tf : fields.keySet()) {
+            tf.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                    String newValue) {
+                    if (!newValue.matches("\\d*")) {
+                        tf.setText(newValue.replaceAll("[^\\d]", ""));
+                    } if(newValue.length() > fields.get(tf)){
+                        tf.setText(newValue.substring(0,fields.get(tf)));
+                    }
+                }
+            });
+        }
     }
 }
