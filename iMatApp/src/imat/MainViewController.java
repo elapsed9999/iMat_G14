@@ -68,8 +68,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private FlowPane SmallVarukorgFlowPane;
     @FXML private FlowPane LargeVarukorgFlowPane;
     private FlowPane VarukorgFlowPane;
-    @FXML private ScrollPane SmallVarukorgScrollPane;
-    @FXML private ScrollPane LargeVarukorgScrollPane;
     @FXML private FlowPane CategoryFlowPane;
     @FXML private AnchorPane profileAnchor;
 
@@ -122,9 +120,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             customer.setMobilePhoneNumber("0000000000");
             customer.setPostCode("0000");
         }
-
-        fillDeliveryPane();
-
         initializeProfileTextFields();
 
 // Add listener to profileName TextField
@@ -133,23 +128,19 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         profileName.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setFirstName(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
         });
         profilePhone.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setMobilePhoneNumber(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
         });
         profileAdress.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setAddress(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
         });
 
         profilePostCode.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostCode(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
         });
         profileEmail.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setEmail(newValue);
@@ -158,7 +149,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         profilePostCity.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostAddress(newValue);
             profileInformation();
-            iMatDataHandler.shutDown();
         });
 
     }
@@ -411,21 +401,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         iMatDataHandler.getCustomer().setEmail(profileEmail.getText());
     }
     public void fillDeliveryPane () {
-        if (iMatDataHandler.getCustomer() == null) {
-            leveransName.setText("Default User");
-            leveransAdress.setText("Default Address");
-            leveransPostCode.setText("00000");
-            leveransEmail.setText("default@example.com");
-            leveransNumber.setText("0000000000");
-        } else {
-            leveransName.setText(iMatDataHandler.getCustomer().getFirstName() + " " + iMatDataHandler.getCustomer().getLastName());
-            leveransAdress.setText(iMatDataHandler.getCustomer().getAddress());
-            leveransPostCode.setText(iMatDataHandler.getCustomer().getPostCode());
-            leveransEmail.setText(iMatDataHandler.getCustomer().getEmail());
-            leveransNumber.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
-            leveransCity.setText(iMatDataHandler.getCustomer().getPostAddress());
-            leveransAdress.setText(iMatDataHandler.getCustomer().getAddress());
-        }
+        leveransName.setText(profileName.getText());
+        leveransAdress.setText(profileAdress.getText());
+        leveransPostCode.setText(profilePostCode.getText());
+        leveransEmail.setText(profileEmail.getText());
+        leveransNumber.setText(profilePhone.getText());
+        leveransCity.setText(profilePostCity.getText());
     }
     public void fillProfile () {
         if (iMatDataHandler.getCustomer() == null) {

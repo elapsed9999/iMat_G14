@@ -158,143 +158,6 @@
                   <URL value="@imat_app.css" />
                </stylesheets>
             </AnchorPane>
-            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="724.0" prefWidth="840.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <AnchorPane fx:id="ScrollPaneInside1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
-                                 <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="544.0" prefWidth="667.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <FlowPane fx:id="LargeVarukorgFlowPane" prefHeight="545.0" prefWidth="656.0" />
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </ScrollPane>
-                        <Separator prefWidth="200.0" style="-fx-border-style: solid;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="71.0" layoutY="666.0" styleClass="text_large" text="Summa:" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="50.0" />
-                        <Label layoutX="767.0" layoutY="666.0" styleClass="text_large" text="kr" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="50.0" />
-                        <Label fx:id="SumPriceVarukorg" alignment="CENTER_RIGHT" layoutX="665.0" layoutY="666.0" prefHeight="36.0" styleClass="text_large" text="0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="85.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="100.0" layoutY="301.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <effect>
-                        <InnerShadow height="11.0" radius="5.0" width="11.0">
-                           <color>
-                              <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
-                           </color>
-                        </InnerShadow>
-                     </effect>
-                  </AnchorPane>
-                  <AnchorPane layoutX="1138.0" layoutY="269.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <effect>
-                        <InnerShadow height="11.0" radius="5.0" width="11.0">
-                           <color>
-                              <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
-                           </color>
-                        </InnerShadow>
-                     </effect>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="150.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <children>
-                        <Button fx:id="ReturnButton1" layoutX="42.0" layoutY="37.0" mnemonicParsing="false" onAction="#openMainView" prefHeight="74.0" prefWidth="198.0" text="Tillbaka" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="70.0">
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                           <styleClass>
-                              <String fx:value="green-button" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="ContinueButton1" layoutX="1170.0" layoutY="37.0" mnemonicParsing="false" onAction="#leveransToFront" prefHeight="74.0" prefWidth="198.0" text="Fortsätt" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="70.0">
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                           <styleClass>
-                              <String fx:value="green-button" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="HeaderPane2" layoutX="11.0" layoutY="10.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ImageView fx:id="ProfileImage2" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
-                           <image>
-                              <Image url="@resources/profile-image.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView fx:id="IconImage2" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@resources/iMat_logo.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label fx:id="NavigationTextVarukorg1" layoutX="629.0" layoutY="56.0" text="Varukorg" AnchorPane.leftAnchor="630.0">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="navigation_text_current_page" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label fx:id="NavigationTextLeverans1" alignment="CENTER" layoutX="838.0" layoutY="58.0" onMouseClicked="#leveransToFront" text="Leverans" AnchorPane.leftAnchor="847.0" AnchorPane.rightAnchor="468.79999999999995">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="navigation_text" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label fx:id="NavigationTextBetalning1" layoutX="1053.0" layoutY="58.0" onMouseClicked="#betalningToFront" text="Betalning" AnchorPane.rightAnchor="260.0">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="navigation_text" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Button fx:id="ContinueShoppingButton1" layoutX="339.0" layoutY="46.0" mnemonicParsing="false" onAction="#closeDetailView" onMouseClicked="#openMainView" style="-fx-background-color: #EEEEEE;" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                           <styleClass>
-                              <String fx:value="text_large" />
-                              <String fx:value="continue_shopping_button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </AnchorPane>
-               </children>
-               <stylesheets>
-                  <URL value="@imat_app.css" />
-                  <URL value="@checkout.css" />
-               </stylesheets>
-            </AnchorPane>
             <AnchorPane fx:id="betalningAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
                <children>
                   <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -544,6 +407,143 @@
                   </StackPane>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="varukorgAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <AnchorPane layoutX="442.0" layoutY="250.0" prefHeight="724.0" prefWidth="840.0" style="-fx-background-color: #EEEEEE;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <AnchorPane fx:id="ScrollPaneInside1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
+                                 <children>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="544.0" prefWidth="667.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <FlowPane fx:id="LargeVarukorgFlowPane" prefHeight="545.0" prefWidth="656.0" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Separator prefWidth="200.0" style="-fx-border-style: solid;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="71.0" layoutY="666.0" styleClass="text_large" text="Summa:" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="50.0" />
+                        <Label layoutX="767.0" layoutY="666.0" styleClass="text_large" text="kr" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="50.0" />
+                        <Label fx:id="SumPriceVarukorg" alignment="CENTER_RIGHT" layoutX="665.0" layoutY="666.0" prefHeight="36.0" styleClass="text_large" text="0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="85.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="100.0" layoutY="301.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <effect>
+                        <InnerShadow height="11.0" radius="5.0" width="11.0">
+                           <color>
+                              <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </AnchorPane>
+                  <AnchorPane layoutX="1138.0" layoutY="269.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="300.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <effect>
+                        <InnerShadow height="11.0" radius="5.0" width="11.0">
+                           <color>
+                              <Color red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="150.0" prefWidth="200.0" styleClass="footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="ReturnButton1" layoutX="42.0" layoutY="37.0" mnemonicParsing="false" onAction="#openMainView" prefHeight="74.0" prefWidth="198.0" text="Tillbaka" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="70.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="green-button" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="ContinueButton1" layoutX="1170.0" layoutY="37.0" mnemonicParsing="false" onAction="#leveransToFront" prefHeight="74.0" prefWidth="198.0" text="Fortsätt" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="70.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="green-button" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="HeaderPane2" layoutX="11.0" layoutY="10.0" maxHeight="150.0" maxWidth="1440.0" minHeight="150.0" minWidth="1440.0" prefHeight="150.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fx:id="ProfileImage2" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
+                           <image>
+                              <Image url="@resources/profile-image.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="IconImage2" fitHeight="150.0" fitWidth="300.0" layoutX="-2.0" layoutY="-5.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@resources/iMat_logo.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="NavigationTextVarukorg1" layoutX="629.0" layoutY="56.0" text="Varukorg" AnchorPane.leftAnchor="630.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="navigation_text_current_page" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="NavigationTextLeverans1" alignment="CENTER" layoutX="838.0" layoutY="58.0" onMouseClicked="#leveransToFront" text="Leverans" AnchorPane.leftAnchor="847.0" AnchorPane.rightAnchor="468.79999999999995">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="navigation_text" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="NavigationTextBetalning1" layoutX="1053.0" layoutY="58.0" onMouseClicked="#betalningToFront" text="Betalning" AnchorPane.rightAnchor="260.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="navigation_text" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Button fx:id="ContinueShoppingButton1" layoutX="339.0" layoutY="46.0" mnemonicParsing="false" onAction="#closeDetailView" onMouseClicked="#openMainView" style="-fx-background-color: #EEEEEE;" text="Fortsätt handla" AnchorPane.leftAnchor="339.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="text_large" />
+                              <String fx:value="continue_shopping_button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+               <stylesheets>
+                  <URL value="@imat_app.css" />
+                  <URL value="@checkout.css" />
+               </stylesheets>
+            </AnchorPane>
             <AnchorPane fx:id="detailAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeDetailView" styleClass="detail_view">
                <children>
                   <AnchorPane fx:id="detailView" layoutX="125.0" layoutY="154.0" styleClass="text-area" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="150.0">
@@ -579,105 +579,6 @@
                      </children>
                   </AnchorPane>
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="fullView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <AnchorPane fx:id="HeaderPane" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TextField fx:id="SearchBar" layoutX="412.0" layoutY="53.0" minHeight="40.0" minWidth="797.0" prefHeight="40.0" prefWidth="797.0" promptText="Sök...." AnchorPane.leftAnchor="396.5" AnchorPane.rightAnchor="396.5" AnchorPane.topAnchor="53.0" />
-                        <ImageView fx:id="SearchImage" fitHeight="27.0" fitWidth="31.0" layoutX="987.0" layoutY="60.0" onMouseClicked="#searchImageClick" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="422.0" AnchorPane.topAnchor="60.0">
-                           <image>
-                              <Image url="@resources/search-svgrepo-com.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView fx:id="ProfileImage" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/profile-image.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView fx:id="IconImage" fitHeight="150.0" fitWidth="300.0" layoutY="2.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@resources/iMat_logo.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label fx:id="pathLabel" layoutX="432.0" layoutY="98.0" text="Label" />
-                     </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </AnchorPane>
-                  <AnchorPane fx:id="CenterStagePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0">
-                     <children>
-                        <AnchorPane fx:id="ErbjudandenPane" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <FlowPane fx:id="ErbjudandenFlowPane" alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="110.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children></AnchorPane>
-                        <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <ScrollPane fx:id="ProductScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <content>
-                                    <FlowPane fx:id="ProductFlowPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" />
-                                 </content>
-                              </ScrollPane>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="VarukorgName" prefHeight="84.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <Label alignment="CENTER" layoutX="36.0" layoutY="22.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Varukorg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children></AnchorPane>
-                  <AnchorPane fx:id="KategoriName" prefHeight="84.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <Label alignment="CENTER" layoutX="23.0" layoutY="-5.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Kategorier" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children></AnchorPane>
-                  <AnchorPane fx:id="VarukorgPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="234.0">
-                     <children>
-                        <ScrollPane fx:id="SmallVarukorgScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="661.0" prefWidth="300.0" AnchorPane.bottomAnchor="129.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <FlowPane fx:id="SmallVarukorgFlowPane" prefHeight="777.0" prefWidth="298.0" />
-                           </content>
-                        </ScrollPane>
-                        <Label layoutX="14.0" layoutY="756.0" styleClass="text-sample" text="Summa:" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="15.0" />
-                        <Label layoutX="243.0" layoutY="755.0" styleClass="text-sample" text="Kr" AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="15.0" />
-                        <Label fx:id="SumPriceMain" layoutX="238.0" layoutY="757.0" styleClass="text-sample" text="0" AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="40.0" />
-                        <Button fx:id="checkoutButton" layoutX="21.0" layoutY="742.0" mnemonicParsing="false" onAction="#varukorgToFront" prefHeight="39.0" prefWidth="270.0" text="Till kassan" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                           <styleClass>
-                              <String fx:value="green-button" />
-                              <String fx:value="text_large" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="KategoriPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
-                     <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="62.0" layoutY="203.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <FlowPane fx:id="CategoryFlowPane" prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="CenterStageNamePane" prefHeight="84.0" prefWidth="837.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
-                     <children>
-                        <Label fx:id="CenterStageNameLabel" alignment="CENTER" layoutX="343.0" layoutY="15.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Erbjudanden" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children></AnchorPane>
-               </children>
-               <StackPane.margin>
-                  <Insets />
-               </StackPane.margin>
             </AnchorPane>
             <AnchorPane fx:id="profileAnchor" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1590.0" style="-fx-background-color: #FFFFFF;">
                <children>
@@ -857,6 +758,105 @@
                      </effect>
                   </AnchorPane>
                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="fullView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <AnchorPane fx:id="HeaderPane" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="SearchBar" layoutX="412.0" layoutY="53.0" minHeight="40.0" minWidth="797.0" prefHeight="40.0" prefWidth="797.0" promptText="Sök...." AnchorPane.leftAnchor="396.5" AnchorPane.rightAnchor="396.5" AnchorPane.topAnchor="53.0" />
+                        <ImageView fx:id="SearchImage" fitHeight="27.0" fitWidth="31.0" layoutX="987.0" layoutY="60.0" onMouseClicked="#searchImageClick" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="422.0" AnchorPane.topAnchor="60.0">
+                           <image>
+                              <Image url="@resources/search-svgrepo-com.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="ProfileImage" fitHeight="108.0" fitWidth="125.0" layoutX="1241.0" layoutY="22.0" onMouseClicked="#openProfileView" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/profile-image.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="IconImage" fitHeight="150.0" fitWidth="300.0" layoutY="2.0" onMouseClicked="#openMainView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@resources/iMat_logo.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="pathLabel" layoutX="432.0" layoutY="98.0" text="Label" />
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+                  <AnchorPane fx:id="CenterStagePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <AnchorPane fx:id="ErbjudandenPane" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="300.0" prefWidth="836.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FlowPane fx:id="ErbjudandenFlowPane" alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="110.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="BrowsePane" minHeight="-Infinity" prefHeight="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <ScrollPane fx:id="ProductScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <FlowPane fx:id="ProductFlowPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="VarukorgName" prefHeight="84.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="36.0" layoutY="22.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Varukorg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="KategoriName" prefHeight="84.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="23.0" layoutY="-5.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Kategorier" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="VarukorgPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <ScrollPane fx:id="SmallVarukorgScrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="661.0" prefWidth="300.0" AnchorPane.bottomAnchor="129.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <FlowPane fx:id="SmallVarukorgFlowPane" prefHeight="777.0" prefWidth="298.0" />
+                           </content>
+                        </ScrollPane>
+                        <Label layoutX="14.0" layoutY="756.0" styleClass="text-sample" text="Summa:" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="15.0" />
+                        <Label layoutX="243.0" layoutY="755.0" styleClass="text-sample" text="Kr" AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="15.0" />
+                        <Label fx:id="SumPriceMain" layoutX="238.0" layoutY="757.0" styleClass="text-sample" text="0" AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="40.0" />
+                        <Button fx:id="checkoutButton" layoutX="21.0" layoutY="742.0" mnemonicParsing="false" onAction="#varukorgToFront" prefHeight="39.0" prefWidth="270.0" text="Till kassan" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="green-button" />
+                              <String fx:value="text_large" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="KategoriPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="62.0" layoutY="203.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <FlowPane fx:id="CategoryFlowPane" prefHeight="200.0" prefWidth="200.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="CenterStageNamePane" prefHeight="84.0" prefWidth="837.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label fx:id="CenterStageNameLabel" alignment="CENTER" layoutX="343.0" layoutY="15.0" style="-fx-border-color: #000000;" styleClass="text-larger" text="Erbjudanden" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
             </AnchorPane>
          </children>
       </StackPane>
