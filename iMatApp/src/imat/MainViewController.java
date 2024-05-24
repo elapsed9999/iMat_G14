@@ -133,19 +133,23 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         profileName.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setFirstName(newValue);
             profileInformation();
+            iMatDataHandler.shutDown();
         });
         profilePhone.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setMobilePhoneNumber(newValue);
             profileInformation();
+            iMatDataHandler.shutDown();
         });
         profileAdress.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setAddress(newValue);
             profileInformation();
+            iMatDataHandler.shutDown();
         });
 
         profilePostCode.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostCode(newValue);
             profileInformation();
+            iMatDataHandler.shutDown();
         });
         profileEmail.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setEmail(newValue);
@@ -154,6 +158,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         profilePostCity.textProperty().addListener((observable, oldValue, newValue) -> {
             iMatDataHandler.getCustomer().setPostAddress(newValue);
             profileInformation();
+            iMatDataHandler.shutDown();
         });
 
     }
