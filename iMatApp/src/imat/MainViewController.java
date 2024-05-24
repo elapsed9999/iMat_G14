@@ -4,6 +4,8 @@ package imat;
 import java.net.URL;
 import java.util.*;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,6 +52,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField leveransPostCode;
     @FXML private TextField leveransCity;
     @FXML private TextField leveransNumber;
+    @FXML private ComboBox cardTypeCombo;
+    @FXML private TextField betalningName;
+    @FXML private TextField betalningPersonnummer;
+    @FXML private TextField betalningCardNumber;
+    @FXML private TextField betalningExpiringDate;
+    @FXML private TextField betalningCVC;
+
 
     @FXML private Label swishBetalning;
     @FXML private Label klarnaBetalning;
@@ -150,12 +159,18 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             iMatDataHandler.getCustomer().setPostAddress(newValue);
             profileInformation();
         });
+        cardTypeCombo.getItems().addAll("Välj kort", "Mastercard", "Visa", "American Express");
+        cardTypeCombo.getSelectionModel().select("Välj kort");
+
+        cardTypeCombo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            iMatDataHandler.getCreditCard().setCardType((String) newValue);
+        });
 
     }
 
     private void setWindowSize() {
         List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,
-                betalningAnchor,swishBetalningAnchor,klarnaBetalningAnchor,kortBetalningAnchor,huvudbetalning);
+                betalningAnchor,huvudbetalning);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(stackPane.widthProperty());
             pane.prefHeightProperty().bind(stackPane.heightProperty());
@@ -424,6 +439,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             profilePhone.setText(iMatDataHandler.getCustomer().getMobilePhoneNumber());
             profilePostCity.setText(iMatDataHandler.getCustomer().getPostAddress());
         }
-    }
 
+    }
+    public void betalningsMetod(){
+        cardTypeCombo.setValue(iMatDataHandler.getCreditCard().getCardType());
+        betalningName.setText(iMatDataHandler.getCreditCard().getHoldersName());
+        betalningCVC.setText(String.valueOf(iMatDataHandler.getCreditCard().getVerificationCode()));
+        betalningExpiringDate.setText(String.valueOf(iMatDataHandler.getCreditCard().getValidMonth()) + "/" + iMatDataHandler.getCreditCard().getValidYear());
+        be
+    }
 }
