@@ -13,6 +13,7 @@ public class OrderVarukorgItem extends AnchorPane {
     @FXML private Label Name2;
     @FXML private Label Price;
     @FXML private ImageView Image;
+    @FXML private Label Amount;
     private ShoppingItem shoppingItem;
     private MainViewController parentController;
     public OrderVarukorgItem(ShoppingItem shoppingItem, MainViewController parentController) {
@@ -31,5 +32,6 @@ public class OrderVarukorgItem extends AnchorPane {
         String priceText = String.format("%.2f",shoppingItem.getTotal());
         Price.setText(priceText);
         Image.setImage(parentController.iMatDataHandler.getFXImage(shoppingItem.getProduct()));
+        Amount.setText(String.valueOf((int)shoppingItem.getAmount()) + " " + shoppingItem.getProduct().getUnitSuffix());
     }
 }

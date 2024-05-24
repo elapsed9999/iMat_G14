@@ -98,11 +98,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane EditProfilePane;
     @FXML private AnchorPane TidigareKöpPane;
     @FXML private FlowPane TidigareKöpFlowPane;
-    @FXML private AnchorPane OrderDetailAnchor;
+    @FXML private AnchorPane OrderDetailPane;
     @FXML private Label ProfileTitle;
     @FXML private AnchorPane ProfileMenuProfile;
     @FXML private AnchorPane ProfileMenuTidigareKöp;
-    @FXML private Label OrderDetailSumPrice;
+    @FXML private Label OrderDetailSum;
     @FXML private Label OrderDetailDate;
     @FXML private FlowPane OrderDetailVarukorgFlowPane;
 
@@ -145,7 +145,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             customer.setPostCode("0000");
         }
         initializeProfileTextFields();
-
 // Add listener to profileName TextField
     }
     private void initializeProfileTextFields(){
@@ -206,12 +205,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private void setWindowSize() {
         List<AnchorPane> anchorPanes = Arrays.asList(fullView,detailView,leveransAnchor,varukorgAnchor,profileAnchor,
-                betalningAnchor,huvudbetalning);
+                betalningAnchor,huvudbetalning,endScreen);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(stackPane.widthProperty());
             pane.prefHeightProperty().bind(stackPane.heightProperty());
         }
-        anchorPanes = Arrays.asList(EditProfilePane,TidigareKöpPane,OrderDetailAnchor);
+        anchorPanes = Arrays.asList(EditProfilePane,TidigareKöpPane);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(ProfileStackPane.widthProperty());
             pane.prefHeightProperty().bind(ProfileStackPane.heightProperty());
@@ -281,6 +280,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     private void initializeProductCards(){
+        productCardMap.clear();
         List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
         ProductCard pc;
         ShoppingItem si;
@@ -356,8 +356,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         if(event.isAddEvent()){
             addVarukorgListItem(event.getShoppingItem());
-        }else if(iMatDataHandler.getShoppingCart().getItems().size() == 0 && VarukorgFlowPane == LargeVarukorgFlowPane){
-            openMainView();
+        } else if(iMatDataHandler.getShoppingCart().getItems().size() == 0) {
+            if(event.getShoppingItem() == null){ VarukorgFlowPane.getChildren().clear(); }
+            else{
+                openMainView();
+            }
+
         }
         updateVarukorgList(event.getShoppingItem());
     }
@@ -381,7 +385,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     public void openOrderDetailView(Order order){
         populateOrderDetailView(order);
-        OrderDetailAnchor.toFront();
+        OrderDetailPane.setVisible(true);
     }
     @FXML public void openProfileView(){
         fillProfile();
@@ -396,6 +400,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML public void openTidigareKöp(){
         TidigareKöpPane.toFront();
+        OrderDetailPane.setVisible(false);
         ProfileTitle.setText("Tidigare köp");
         ProfileMenuProfile.getStyleClass().clear();
         ProfileMenuProfile.getStyleClass().add("list-item");
@@ -441,7 +446,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
     @FXML public void endScreenToFront(){
         iMatDataHandler.placeOrder();
-        VarukorgFlowPane.getChildren().clear();
+        initializeProductCards();
         endScreen.toFront();
     }
     @FXML public void returnCheckoutView5(){
@@ -486,7 +491,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             price += item.getTotal();
         }
         String priceText = String.format("%.2f",price);
-        OrderDetailSumPrice.setText(priceText);
+        OrderDetailSum.setText(priceText);
         String dateText = order.getDate().toString();
         OrderDetailDate.setText(dateText);
         OrderDetailVarukorgFlowPane.getChildren().clear();

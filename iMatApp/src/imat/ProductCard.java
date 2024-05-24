@@ -40,4 +40,9 @@ public class ProductCard extends VarukorgItemController {
     public void onClick(Event event){
         parentController.openDetailView(shoppingItem.getProduct());
     }
+
+    public void setShoppingItem(ShoppingItem shoppingItem){
+        this.shoppingItem = shoppingItem;
+        updateAmount();
+    }
 }

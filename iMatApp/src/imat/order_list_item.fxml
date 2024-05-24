@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="38.0" prefWidth="631.0" style="-fx-border-color: #000000;" styleClass="order-list-item" stylesheets="@imat_app.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="38.0" prefWidth="560.0" style="-fx-border-color: #000000;" styleClass="list-item" stylesheets="@imat_app.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="Date" layoutX="14.0" layoutY="9.0" styleClass="text-sample" text="Date" />
       <Label layoutX="487.0" layoutY="9.0" styleClass="text-sample" text="kr" AnchorPane.rightAnchor="15.0" />
