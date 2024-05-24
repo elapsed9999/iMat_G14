@@ -4,7 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="445.0" style="-fx-background-color: transparent;" styleClass="text-sample" stylesheets="@imat_app.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="503.0" style="-fx-background-color: transparent; -fx-border-color: #000000;" styleClass="text-sample" stylesheets="@imat_app.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="Name2" layoutX="92.0" layoutY="14.0" styleClass="text-sample" text="Namn" />
       <Label fx:id="Amount" alignment="CENTER_RIGHT" layoutX="335.0" layoutY="14.0" prefHeight="20.0" styleClass="text-sample" text="0" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="100.39999999999998" />

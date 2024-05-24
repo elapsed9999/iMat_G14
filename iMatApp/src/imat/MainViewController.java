@@ -116,6 +116,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private Label OrderDetailDate;
     @FXML private FlowPane OrderDetailVarukorgFlowPane;
     @FXML private AnchorPane profilCreditCardAnchor;
+    @FXML private AnchorPane ProfileMenuTidigareKöp1;
 
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -225,7 +226,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             pane.prefWidthProperty().bind(stackPane.widthProperty());
             pane.prefHeightProperty().bind(stackPane.heightProperty());
         }
-        anchorPanes = Arrays.asList(EditProfilePane,TidigareKöpPane,OrderDetailAnchor, profilCreditCardAnchor);
+        anchorPanes = Arrays.asList(EditProfilePane,TidigareKöpPane, profilCreditCardAnchor);
         for(AnchorPane pane : anchorPanes){
             pane.prefWidthProperty().bind(ProfileStackPane.widthProperty());
             pane.prefHeightProperty().bind(ProfileStackPane.heightProperty());
@@ -398,6 +399,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailAnchor.toFront();
     }
     @FXML public void openProfileBetalning(){
+        ProfileTitle.setText("Betalningsinformation");
+        ProfileMenuProfile.getStyleClass().clear();
+        ProfileMenuProfile.getStyleClass().add("list-item");
+        ProfileMenuTidigareKöp.getStyleClass().clear();
+        ProfileMenuTidigareKöp.getStyleClass().add("list-item");
+        ProfileMenuTidigareKöp1.getStyleClass().clear();
+        ProfileMenuTidigareKöp1.getStyleClass().add("green-button");
         betalningsMetod();
         profilCreditCardAnchor.toFront();
     }
@@ -414,16 +422,21 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         ProfileMenuProfile.getStyleClass().add("green-button");
         ProfileMenuTidigareKöp.getStyleClass().clear();
         ProfileMenuTidigareKöp.getStyleClass().add("list-item");
+        ProfileMenuTidigareKöp1.getStyleClass().clear();
+        ProfileMenuTidigareKöp1.getStyleClass().add("list-item");
         profileAnchor.toFront();
     }
 
     @FXML public void openTidigareKöp(){
         TidigareKöpPane.toFront();
+        OrderDetailPane.setVisible(false);
         ProfileTitle.setText("Tidigare köp");
         ProfileMenuProfile.getStyleClass().clear();
         ProfileMenuProfile.getStyleClass().add("list-item");
         ProfileMenuTidigareKöp.getStyleClass().clear();
         ProfileMenuTidigareKöp.getStyleClass().add("green-button");
+        ProfileMenuTidigareKöp1.getStyleClass().clear();
+        ProfileMenuTidigareKöp1.getStyleClass().add("list-item");
         TidigareKöpFlowPane.getChildren().clear();
         ListIterator<Order> orders = iMatDataHandler.getOrders().listIterator(iMatDataHandler.getOrders().size());
         while(orders.hasPrevious()){
@@ -578,12 +591,16 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     private void initializeIntegerTextFields(){
         Map<TextField,Integer> fields = Map.of(
-                betalningCardNumber, 15,
+                betalningCardNumber, 16,
                 betalningCVC, 3,
                 profilePostCode, 5,
                 profilePhone, 10,
                 betalningExpiringDate, 2,
-                betalningExpiringDateYear, 2);
+                betalningExpiringDateYear, 2,
+                profilBetalningCardNumber, 16,
+                profilBetalningExpiringdate, 2,
+                profilBetalningExpiringdateYear, 2,
+                profilBetalningCVC, 3);
         for(TextField tf : fields.keySet()) {
             tf.textProperty().addListener(new ChangeListener<String>() {
                 @Override
