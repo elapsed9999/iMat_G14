@@ -72,3 +72,17 @@
  } .category-list-item:pressed {
     -fx-text-fill: #000000;
  }
+
+ .list-item{
+    -fx-background-color: #EEEEEE;
+    -fx-border-color: #000000;
+ }.list-item: hover{
+    -fx-background-color: #FFFFFF;
+ }.list-item: pressed{
+    -fx-background-color: #DEDEDE;
+ }
+
+ .text-field{
+    -fx-text-size: 14;
+    -fx-font-weight: bold;
+ }

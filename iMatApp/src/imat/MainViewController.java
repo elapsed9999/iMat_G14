@@ -211,6 +211,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
             pane.prefWidthProperty().bind(stackPane.widthProperty());
             pane.prefHeightProperty().bind(stackPane.heightProperty());
         }
+        anchorPanes = Arrays.asList(EditProfilePane,TidigareKöpPane,OrderDetailAnchor);
+        for(AnchorPane pane : anchorPanes){
+            pane.prefWidthProperty().bind(ProfileStackPane.widthProperty());
+            pane.prefHeightProperty().bind(ProfileStackPane.heightProperty());
+        }
     }
 
     private void initializeTranslation(){
@@ -351,6 +356,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         if(event.isAddEvent()){
             addVarukorgListItem(event.getShoppingItem());
+        }else if(iMatDataHandler.getShoppingCart().getItems().size() == 0 && VarukorgFlowPane == LargeVarukorgFlowPane){
+            openMainView();
         }
         updateVarukorgList(event.getShoppingItem());
     }
@@ -380,16 +387,20 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         fillProfile();
         EditProfilePane.toFront();
         ProfileTitle.setText("Profilinformation");
-        ProfileMenuProfile.setStyle("-fx-background-color:  #77c8b7");
-        ProfileMenuTidigareKöp.setStyle("-fx-background-color:  #FFFFFF");
+        ProfileMenuProfile.getStyleClass().clear();
+        ProfileMenuProfile.getStyleClass().add("green-button");
+        ProfileMenuTidigareKöp.getStyleClass().clear();
+        ProfileMenuTidigareKöp.getStyleClass().add("list-item");
         profileAnchor.toFront();
     }
 
     @FXML public void openTidigareKöp(){
         TidigareKöpPane.toFront();
         ProfileTitle.setText("Tidigare köp");
-        ProfileMenuProfile.setStyle("-fx-background-color:  #FFFFFF");
-        ProfileMenuTidigareKöp.setStyle("-fx-background-color:  #77c8b7");
+        ProfileMenuProfile.getStyleClass().clear();
+        ProfileMenuProfile.getStyleClass().add("list-item");
+        ProfileMenuTidigareKöp.getStyleClass().clear();
+        ProfileMenuTidigareKöp.getStyleClass().add("green-button");
         TidigareKöpPane.getChildren().clear();
         for(Order order : iMatDataHandler.getOrders()){
             TidigareKöpFlowPane.getChildren().add(new OrderListItem(order,this));
@@ -400,6 +411,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
 
     @FXML public void varukorgToFront(){
+        if(iMatDataHandler.getShoppingCart().getItems().size() == 0){ return; }
         varukorgAnchor.toFront();
         setVarukorg(LargeVarukorgFlowPane,SumPriceVarukorg,true);
     }

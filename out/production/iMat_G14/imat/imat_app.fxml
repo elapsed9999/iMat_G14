@@ -842,7 +842,7 @@
                <children>
                   <StackPane fx:id="ProfileStackPane" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="234.0">
                      <children>
-                        <AnchorPane fx:id="EditProfilePane" prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="EditProfilePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
                            <children>
                               <AnchorPane AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="35.0">
                                  <children>
@@ -934,7 +934,6 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="OrderDetailAnchor" prefHeight="200.0" prefWidth="200.0" />
                         <AnchorPane fx:id="TidigareKöpPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
                            <children>
                               <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="78.0" layoutY="68.0" prefHeight="619.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
