@@ -4,11 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
-public class OrderVarukorgItem {
+public class OrderVarukorgItem extends AnchorPane {
     @FXML private Label Name;
     @FXML private Label Price;
     @FXML private ImageView Image;

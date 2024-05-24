@@ -60,10 +60,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField betalningCVC;
     @FXML private TextField betalningExpiringDateYear;
 
-
-
-    @FXML private AnchorPane orderDetailAnchor;
-
     @FXML private Label swishBetalning;
     @FXML private Label klarnaBetalning;
     @FXML private AnchorPane kortBetalningAnchor;
@@ -97,6 +93,18 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML private TextField profileEmail;
     @FXML private TextField profilePostCity;
     private Label SumPrice;
+
+    @FXML private StackPane ProfileStackPane;
+    @FXML private AnchorPane EditProfilePane;
+    @FXML private AnchorPane TidigareKöpPane;
+    @FXML private FlowPane TidigareKöpFlowPane;
+    @FXML private AnchorPane OrderDetailAnchor;
+    @FXML private Label ProfileTitle;
+    @FXML private AnchorPane ProfileMenuProfile;
+    @FXML private AnchorPane ProfileMenuTidigareKöp;
+    @FXML private Label OrderDetailSumPrice;
+    @FXML private Label OrderDetailDate;
+    @FXML private FlowPane OrderDetailVarukorgFlowPane;
 
     private ProductCategory selectedCategory = null;
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -366,11 +374,26 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     public void openOrderDetailView(Order order){
         populateOrderDetailView(order);
-        orderDetailAnchor.toFront();
+        OrderDetailAnchor.toFront();
     }
     @FXML public void openProfileView(){
         fillProfile();
+        EditProfilePane.toFront();
+        ProfileTitle.setText("Profilinformation");
+        ProfileMenuProfile.setStyle("-fx-background-color:  #77c8b7");
+        ProfileMenuTidigareKöp.setStyle("-fx-background-color:  #FFFFFF");
         profileAnchor.toFront();
+    }
+
+    @FXML public void openTidigareKöp(){
+        TidigareKöpPane.toFront();
+        ProfileTitle.setText("Tidigare köp");
+        ProfileMenuProfile.setStyle("-fx-background-color:  #FFFFFF");
+        ProfileMenuTidigareKöp.setStyle("-fx-background-color:  #77c8b7");
+        TidigareKöpPane.getChildren().clear();
+        for(Order order : iMatDataHandler.getOrders()){
+            TidigareKöpFlowPane.getChildren().add(new OrderListItem(order,this));
+        }
     }
     @FXML public void closeDetailView() {
         fullView.toFront();
@@ -440,8 +463,20 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         detailCategoriLabel.setText(categoryToString(product.getCategory()));
         detailArea.setText(iMatDataHandler.getDetail(product).getDescription());
         detailAreaContent.setText(iMatDataHandler.getDetail(product).getContents());
+    }
 
-
+    private void populateOrderDetailView(Order order){
+        double price = 0;
+        for(ShoppingItem item : order.getItems()){
+            price += item.getTotal();
+        }
+        String priceText = String.format("%.2f",price);
+        OrderDetailSumPrice.setText(priceText);
+        String dateText = order.getDate().toString();
+        OrderDetailDate.setText(dateText);
+        for(ShoppingItem item : order.getItems()){
+            OrderDetailVarukorgFlowPane.getChildren().add(new OrderVarukorgItem(item, this));
+        }
     }
     public void profileInformation () {
         iMatDataHandler.getCustomer().setFirstName(profileName.getText());
