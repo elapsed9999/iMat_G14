@@ -441,6 +441,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     }
     @FXML public void endScreenToFront(){
         iMatDataHandler.placeOrder();
+        VarukorgFlowPane.getChildren().clear();
         endScreen.toFront();
     }
     @FXML public void returnCheckoutView5(){
