@@ -10,13 +10,13 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.io.IOException;
 
 public class OrderVarukorgItem extends AnchorPane {
-    @FXML private Label Name;
+    @FXML private Label Name2;
     @FXML private Label Price;
     @FXML private ImageView Image;
     private ShoppingItem shoppingItem;
     private MainViewController parentController;
     public OrderVarukorgItem(ShoppingItem shoppingItem, MainViewController parentController) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("order_list_item.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("order_varukorg_item.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -27,7 +27,7 @@ public class OrderVarukorgItem extends AnchorPane {
         }
         this.parentController = parentController;
         this.shoppingItem = shoppingItem;
-        Name.setText(shoppingItem.getProduct().getName());
+        Name2.setText(shoppingItem.getProduct().getName());
         String priceText = String.format("%.2f",shoppingItem.getTotal());
         Price.setText(priceText);
         Image.setImage(parentController.iMatDataHandler.getFXImage(shoppingItem.getProduct()));

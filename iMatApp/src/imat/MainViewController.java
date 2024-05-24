@@ -401,9 +401,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         ProfileMenuProfile.getStyleClass().add("list-item");
         ProfileMenuTidigareKöp.getStyleClass().clear();
         ProfileMenuTidigareKöp.getStyleClass().add("green-button");
-        TidigareKöpPane.getChildren().clear();
-        for(Order order : iMatDataHandler.getOrders()){
-            TidigareKöpFlowPane.getChildren().add(new OrderListItem(order,this));
+        TidigareKöpFlowPane.getChildren().clear();
+        ListIterator<Order> orders = iMatDataHandler.getOrders().listIterator(iMatDataHandler.getOrders().size());
+        while(orders.hasPrevious()){
+            TidigareKöpFlowPane.getChildren().add(new OrderListItem(orders.previous(),this));
         }
     }
     @FXML public void closeDetailView() {
@@ -439,6 +440,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         leveransAnchor.toFront();
     }
     @FXML public void endScreenToFront(){
+        iMatDataHandler.placeOrder();
         endScreen.toFront();
     }
     @FXML public void returnCheckoutView5(){
@@ -486,6 +488,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         OrderDetailSumPrice.setText(priceText);
         String dateText = order.getDate().toString();
         OrderDetailDate.setText(dateText);
+        OrderDetailVarukorgFlowPane.getChildren().clear();
         for(ShoppingItem item : order.getItems()){
             OrderDetailVarukorgFlowPane.getChildren().add(new OrderVarukorgItem(item, this));
         }

@@ -35,5 +35,5 @@ public class OrderListItem extends AnchorPane {
         String dateText = order.getDate().toString();
         Date.setText(dateText);
     }
-    public void onClick(Event event){ parentController.openOrderDetailView(order); }
+    @FXML public void onClick(Event event){ parentController.openOrderDetailView(order); }
 }
