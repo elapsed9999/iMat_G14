@@ -20,7 +20,6 @@ import se.chalmers.cse.dat216.project.*;
 
 public class MainViewController implements Initializable, ShoppingCartListener {
 
-    @FXML private Label pathLabel;
     @FXML private AnchorPane detailAnchor;
     @FXML private AnchorPane detailView;
     @FXML private ImageView closeDetailView;
@@ -131,8 +130,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
         iMatDataHandler.getShoppingCart().addShoppingCartListener(this);
-
-        pathLabel.setText(iMatDirectory);
 
         setWindowSize();
 

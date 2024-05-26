@@ -882,7 +882,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label fx:id="pathLabel" layoutX="432.0" layoutY="98.0" text="Label" />
                      </children>
                      <effect>
                         <DropShadow />
